@@ -14,22 +14,6 @@ SgResponseGenerator class >> resetTemplates [
 	HttpErrorTemplate := nil
 ]
 
-{ #category : #'as yet unclassified' }
-SgResponseGenerator >> HtmlPageForGetInfo: fields [
-	"Devuelve una página html con la informacion de la query String.
-	 @param fields <Dictionary> el valor devuelto por WARequest queryFields."
-
-	self ifResetPossible: [
-		self response
-			doNotCache;
-			contentType: WAMimeType textHtml ].
-	self response nextPutAll:
-		(self getInfoTemplate
-			 value: (Dictionary newFromPairs: {
-						  #params.
-						  (self transformDictionary: fields) }))
-]
-
 { #category : #private }
 SgResponseGenerator >> genericResponseForStatus: aStatusObject [
 
@@ -47,6 +31,22 @@ SgResponseGenerator >> genericResponseForStatus: aStatusObject [
 SgResponseGenerator >> getInfoTemplate [ 
 
 	^ (SgMustacheTemplate newForFile: 'getInfo.mustache.html') template
+]
+
+{ #category : #'as yet unclassified' }
+SgResponseGenerator >> htmlPageForGetInfo: fields [
+	"Devuelve una página html con la informacion de la query String.
+	 @param fields <Dictionary> el valor devuelto por WARequest queryFields."
+
+	self ifResetPossible: [
+		self response
+			doNotCache;
+			contentType: WAMimeType textHtml ].
+	self response nextPutAll:
+		(self getInfoTemplate
+			 value: (Dictionary newFromPairs: {
+						  #params.
+						  (self transformDictionary: fields) }))
 ]
 
 { #category : #private }

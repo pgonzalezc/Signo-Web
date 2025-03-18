@@ -117,14 +117,14 @@ SgMIdentificacion >> printOn: aStream [
 		nextPutAll: ' nombre: ';
 		print: nombre.
 	aStream
-		nextPutAll: ' apellido1: ';
-		print: apellido1.
+		nextPutAll: ' nif: ';
+		print: nif.
 	aStream
 		nextPutAll: ' apellido2: ';
 		print: apellido2.
 	aStream
-		nextPutAll: ' nif: ';
-		print: nif
+		nextPutAll: ' apellido1: ';
+		print: apellido1
 ]
 
 { #category : #rendering }

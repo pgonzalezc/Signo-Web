@@ -20,6 +20,14 @@ Sg319RootView class >> initialize [
 	WAAdmin register:  self asApplicationAt: '/signo/m319'
 ]
 
+{ #category : #'as yet unclassified' }
+Sg319RootView >> doSubmit [ 
+
+	children do: [ :c |
+		Transcript show: c decoratedComponent model asString; cr
+		 ]
+]
+
 { #category : #initialization }
 Sg319RootView >> initialize [
 
@@ -44,7 +52,11 @@ Sg319RootView >> renderContentOn: html [
 						 self title.
 						 self subtitle };
 				 setModel: '319').
-		children do: [ :each | html render: each ] ]
+		children do: [ :each | html render: each ].
+		
+		html div style: 'text-align: right'; with: [ 
+			html button callback: [ self doSubmit ]; value: 'Enviar'
+			 ] ]
 ]
 
 { #category : #'as yet unclassified' }

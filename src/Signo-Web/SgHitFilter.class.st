@@ -11,7 +11,7 @@ SgHitFilter >> handleFiltered: aRequestContext [
 		show: 'SgHitFiltered -- done';
 		cr.
 	aRequestContext request isGet ifTrue: [
-		(aRequestContext responseGenerator HtmlPageForGetInfo:
+		(aRequestContext responseGenerator htmlPageForGetInfo:
 			 aRequestContext request queryFields) value respond ].
 	aRequestContext request isPost ifTrue: [
 		aRequestContext responseGenerator methodNotAllowed respond ].

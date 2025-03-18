@@ -2,11 +2,8 @@ Class {
 	#name : #SgDevengo,
 	#superclass : #SgBaseView,
 	#instVars : [
-		'ejercicio',
-		'periodo',
-		'fechaInicioPI',
-		'fechaFinPI',
-		'periodosValidos'
+		'periodosValidos',
+		'modelo'
 	],
 	#classVars : [
 		'Settings'
@@ -64,10 +61,17 @@ SgDevengo class >> devengoSettingsOn: aBuilder [
 		parent: #greetings
 ]
 
-{ #category : #accessing }
-SgDevengo >> model [
+{ #category : #initialization }
+SgDevengo >> initialize [ 
 
-	^ SgMDevengo new
+	super initialize.
+	modelo := SgMDevengo new
+]
+
+{ #category : #accessing }
+SgDevengo >> model [ 
+
+	^ modelo
 ]
 
 { #category : #accessing }
@@ -132,8 +136,8 @@ SgDevengo >> renderFieldEjercicioOn: html [
 						html textInput
 							id: 'input-ejercicio';
 							name: 'input-ejercicio';
-							value: ejercicio;
-							callback: [ :value | ejercicio := value ]
+							value: self model ejercicio;
+							callback: [ :value | self model setEjercicio: value ]
 ]
 
 { #category : #rendering }
@@ -145,8 +149,8 @@ SgDevengo >> renderFieldFechaFinPIOn: html [
 		with: 'Fecha Fin Período Impositivo'.
 	html dateInput5
 		id: 'input-fecha-fin-PI';
-		value: fechaFinPI;
-		callback: [ :value | fechaFinPI := value asDateAndTime ]
+		value: self model fechaFinPeriodoImpositivo ;
+		callback: [ :value | self model setFechaFinPeriodoImpositivo: value asDateAndTime ]
 ]
 
 { #category : #rendering }
@@ -158,8 +162,8 @@ SgDevengo >> renderFieldFechaInicioPIOn: html [
 		with: 'Fecha Inicio Período Impositivo'.
 	html dateInput5
 		id: 'input-fecha-inicio-PI';
-		value: fechaInicioPI;
-		callback: [ :value | fechaInicioPI := value ]
+		value: self model fechaInicioPeriodoImpositivo;
+		callback: [ :value | self model setFechaInicioPeriodoImpositivo: value ]
 ]
 
 { #category : #rendering }
@@ -170,7 +174,7 @@ SgDevengo >> renderFieldPeriodoOn: html [
 		with: 'Período'.
 	html select
 		id: 'input-periodo';
-		callback: [ :value | periodo := value ];
+		callback: [ :value |self model setPeriodo: value ];
 		list: periodosValidos ;
 		labels: [ :each | each key , ' - ' , each value ]
 ]

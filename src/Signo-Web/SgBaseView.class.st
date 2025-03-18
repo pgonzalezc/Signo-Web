@@ -46,6 +46,8 @@ SgBaseView >> cssLibs [
 
 	cssProvider = #milligram ifTrue: [ ^ self milligramCssLibs ].
 	cssProvider = #bulma ifTrue: [ ^ self bulmaCssLibs ].
+	cssProvider = #materialize ifTrue: [  ^ self materializeCssLibs  ].
+	cssProvider = #semantic ifTrue: [  ^ self semanticCssLibs  ].
 	^ self milligramCssLibs 
 ]
 
@@ -68,7 +70,21 @@ SgBaseView >> jsLibs [
 
 	cssProvider = #milligram ifTrue: [ ^ self milligramJsLibs ].
 	cssProvider = #bilma ifTrue: [ ^ self bulmaJsLibs ].
+	cssProvider = #materialize ifTrue: [  ^ self materializeJsLibs  ].
+	cssProvider = #semantic ifTrue: [ ^ self semanticJsLibs ].
 	^ self milligramJsLibs 
+]
+
+{ #category : #'as yet unclassified' }
+SgBaseView >> materializeCssLibs [
+
+	^ #( '/static-files/css/materialize/materialize.min.css' )
+]
+
+{ #category : #'as yet unclassified' }
+SgBaseView >> materializeJsLibs [
+
+	^ #('/static-files/js/jquery-3.7.1/jquery.min.js')
 ]
 
 { #category : #'as yet unclassified' }
@@ -90,6 +106,19 @@ SgBaseView >> milligramJsLibs [
 SgBaseView >> model [
 
 	self subclassResponsibility 
+]
+
+{ #category : #'as yet unclassified' }
+SgBaseView >> semanticCssLibs [
+
+	^ #( '/static-files/css/semantic/semantic.min.css' )
+]
+
+{ #category : #'as yet unclassified' }
+SgBaseView >> semanticJsLibs [
+
+	^ #('/static-files/css/semantic/semantic.js' 
+		 '/static-files/js/jquery/jquery.min.css' )
 ]
 
 { #category : #initialization }
@@ -121,7 +150,7 @@ SgBaseView >> updateRoot: aHtmlRoot [
 
 	super updateRoot: aHtmlRoot.
 	aHtmlRoot meta name: 'viewport'; content: 'width=device-width, initial-scale=1.0'.
-	self milligramCssLibs do: [ :each | aHtmlRoot stylesheet url: each ].
-	self milligramJsLibs do: [ :each | "self setTurboOn: aHtmlRoot."
+	self cssLibs do: [ :each | aHtmlRoot stylesheet url: each ].
+	self jsLibs do: [ :each | "self setTurboOn: aHtmlRoot."
 		aHtmlRoot javascript url: each ]
 ]

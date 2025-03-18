@@ -25,6 +25,7 @@ Sg113RootView >> doSubmit [
 Sg113RootView >> initialize [
 
 	super initialize.
+	cssProvider := #semantic.
 	children := OrderedCollection with: Sg113Bloque3View new with: Sg113Bloque4View new
 ]
 
