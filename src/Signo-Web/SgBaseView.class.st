@@ -23,9 +23,9 @@ SgBaseView class >> initialize [
 ]
 
 { #category : #adding }
-SgBaseView >> addError: anInteger [
+SgBaseView >> addError: aSgError [
 
-	errores add: (SgErrores atCode: anInteger)
+	errores add: aSgError
 ]
 
 { #category : #'as yet unclassified' }
@@ -150,6 +150,7 @@ SgBaseView >> updateRoot: aHtmlRoot [
 
 	super updateRoot: aHtmlRoot.
 	aHtmlRoot meta name: 'viewport'; content: 'width=device-width, initial-scale=1.0'.
+	aHtmlRoot stylesheet url: '/static-files/css/default.css'.
 	self cssLibs do: [ :each | aHtmlRoot stylesheet url: each ].
 	self jsLibs do: [ :each | "self setTurboOn: aHtmlRoot."
 		aHtmlRoot javascript url: each ]

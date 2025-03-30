@@ -24,20 +24,16 @@ SgErroresView >> errores: aCollection [
 { #category : #rendering }
 SgErroresView >> renderContentOn: html [
 
-	html div
-		id: 'area-errores';
-		with: [
-			html blockquote: [ errores do: [ :each | each renderOn: html ] ] ]
+	errores ifNotEmpty: [ 
+		html div
+			id: 'areaErrores';
+			with: [
+				html blockquote: [ errores do: [ :each | each renderOn: html ] ] ].
+			errores removeAll ]
 ]
 
 { #category : #rendering }
 SgErroresView >> renderOn: html [
 
-	html div class: 'area-errores'; with: [ 
-		html blockquote: [ 
-			html unorderedList: [ 
-				errores do: [ :each | html listItem: each ]
-				 ]
-			 ]
-		 ]
+	self renderContentOn: html
 ]

@@ -15,6 +15,15 @@ SgErrores class >> atCode: anInteger [
 ]
 
 { #category : #'error handling' }
+SgErrores class >> atCode: anInteger withText: anArray [
+
+	| err |
+	err := Errores at: anInteger ifAbsent: (SgError message:
+			   ('Código de error {1} no definido' format: { anInteger })).
+	^ err copy withText: anArray
+]
+
+{ #category : #'error handling' }
 SgErrores class >> error100 [
 
 	^ self atCode: 100
@@ -57,6 +66,10 @@ SgErrores class >> initialize [
 			 message: 'Contraseña no informada. Debe introducir su contraseña'
 			 widgetId: 'input-password').
 	Errores at: 105 put: (SgError
-			 message: 'Repeticion de contraseña no informada. Debe introducir la repetición de contraseña'
-			 widgetId: 'input-passwordbis')
+			 message:
+			 'Repeticion de contraseña no informada. Debe introducir la repetición de contraseña'
+			 widgetId: 'input-passwordbis').
+	Errores at: 106 put: (SgError message: 'Importe invalido en la partida [{1}]').
+	Errores at: 107 put: (SgError message: 'Precio por litro en partida [{1}] inválido. No puede ser inferiore a 1.70€')
+			
 ]

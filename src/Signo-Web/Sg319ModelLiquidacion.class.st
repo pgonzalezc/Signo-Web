@@ -2,7 +2,8 @@ Class {
 	#name : #Sg319ModelLiquidacion,
 	#superclass : #Object,
 	#instVars : [
-		'productos'
+		'productos',
+		'porcentajes'
 	],
 	#category : #'Signo-Web-Models-m319'
 }
@@ -17,7 +18,8 @@ Sg319ModelLiquidacion >> initialize [
 		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00)
 		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00)
 		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00)
-		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00)
+		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00).
+	porcentajes := OrderedCollection with: 0.0 with: 0.0 with: 0.0 with: 0.0 with: 0.0
 		
 ]
 
@@ -273,7 +275,106 @@ Sg319ModelLiquidacion >> p24 [
 { #category : #'as yet unclassified' }
 Sg319ModelLiquidacion >> p25 [
 
-	^ (productos collect: #cuotaIva) inject: 0.00s2 into: [ :total :iva | total + iva ]
+	^ ((productos collect: #cuotaIva) inject: 0.00s2 into: [ :total :iva | total + iva ]) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p26 [
+
+	^ ((self p25 * 110.00) / 100.00) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p27 [
+
+	^ (porcentajes at: 1) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p27: aNumber [
+
+	porcentajes at: 1 put: aNumber
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p28 [
+
+	^ (self p26 * self p27 / 100.00) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p29 [
+
+	^ (porcentajes at: 2) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p29: aNumber [
+
+	porcentajes at: 2 put:  aNumber
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p30 [
+
+	^ (self p26 * self p29 / 100.00) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p31 [
+
+	^ (porcentajes at: 3) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p31: aNumber [
+
+	porcentajes at: 3 put: aNumber
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p32 [
+
+	^ (self p26 * self p31 / 100.00) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p33 [
+
+	^ (porcentajes at: 4) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p33: aNumber [
+
+	porcentajes at: 4 put: aNumber
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p34 [
+
+	^ (self p26 * self p33 / 100.00) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p35 [
+
+	| res |
+	res := (100.00 - self p27 - self p29 - self p31 - self p33) round: 2.
+	self p35: res.
+	^ res
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p35: aNumber [
+
+	porcentajes at: 5 put: aNumber
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> p36 [
+
+	^ (self p26  - self p28 - self p30 - self p32 - self p34) round: 2
 ]
 
 { #category : #printing }
@@ -285,5 +386,9 @@ Sg319ModelLiquidacion >> printOn: aStream [
 		nextPutAll: ' productos: '; cr.
 	productos do: [ :each | 
 		aStream tab; print: each; cr
-		 ]
+		 ].
+	porcentajes do: [ :each | |p|
+		p := (self p26 * each / 100.00) round: 2.
+		aStream tab; print: p  ; cr
+		]
 ]

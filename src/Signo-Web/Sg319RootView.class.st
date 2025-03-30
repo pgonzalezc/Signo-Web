@@ -41,6 +41,7 @@ Sg319RootView >> initialize [
 				             addDecoration:
 				             (WAMessageDecoration new message: 'Devengo (2)'))
 				with: ((Sg319Liquidacion3 new addDecoration: (WAMessageDecoration new message: 'Liquidacion (3)')))
+
 ]
 
 { #category : #rendering }
@@ -52,6 +53,7 @@ Sg319RootView >> renderContentOn: html [
 						 self title.
 						 self subtitle };
 				 setModel: '319').
+		html div id: 'areaErrores'.
 		children do: [ :each | html render: each ].
 		
 		html div style: 'text-align: right'; with: [ 

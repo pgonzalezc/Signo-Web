@@ -21,16 +21,16 @@ SgRegisterUserView >> cancelar [
 SgRegisterUserView >> registrar [
 	"Procedemos a validar y registrar los datos introducidos por el usuario en el formulario"
 
-	password ~= passwordbis ifTrue: [ self addError: 100 ].
+	password ~= passwordbis ifTrue: [ self addError: (SgErrores atCode: 100) ].
 	(apellidos isNil or: [ apellidos trim isEmpty ]) ifTrue: [
-		self addError: 101 ].
-	email ifNil: [ self addError: 102 ].
+		self addError: (SgErrores atCode: 101) ].
+	email ifNil: [ self addError: (SgErrores atCode: 102) ].
 	(nombre isNil or: [ nombre trim isEmpty ]) ifTrue: [
-		self addError: 103 ].
+		self addError: (SgErrores atCode: 103) ].
 	(password isNil or: [ password trim isEmpty ]) ifTrue: [
-		self addError: 104 ].
+		self addError: (SgErrores atCode: 104) ].
 	(passwordbis isNil or: [ passwordbis trim isEmpty ]) ifTrue: [
-		self addError: 105 ].
+		self addError: (SgErrores atCode: 105) ].
 
 	SgUsuariosRegistrados insertModel: (SgUsuarioRegistrado new
 			 setEmail: email address;

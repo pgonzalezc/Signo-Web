@@ -21,9 +21,9 @@ SgError class >> message: aString widgetId: aStringId [
 ]
 
 { #category : #accessing }
-SgError >> message: anObject [
+SgError >> message: aString [
 
-	message := anObject
+	message := aString
 ]
 
 { #category : #printing }
@@ -44,6 +44,7 @@ SgError >> printOn: aStream [
 SgError >> renderOn: html [
 
 	html span
+		id: #errorMessage;
 		class: 'small';
 		with: [
 			html text: message.
@@ -51,7 +52,7 @@ SgError >> renderOn: html [
 					html space.
 					html anchor
 						url: 'javascript:void(0)';
-						onClick: (html jQuery id: widgetId) triggerFocus;
+						onClick: (html jQuery id: widgetId) triggerSelect;
 						with: [
 							html image
 								height: 16;
@@ -66,4 +67,10 @@ SgError >> renderOn: html [
 SgError >> widgetId: anObject [
 
 	widgetId := anObject
+]
+
+{ #category : #'as yet unclassified' }
+SgError >> withText: anArray [
+
+	message := message format: anArray
 ]
