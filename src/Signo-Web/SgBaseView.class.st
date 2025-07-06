@@ -57,6 +57,12 @@ SgBaseView >> focusId [
 	^ focusId ifNil: [ focusId := '' ]
 ]
 
+{ #category : #testing }
+SgBaseView >> hayErrores [ 
+
+	^ errores isNotEmpty 
+]
+
 { #category : #initialization }
 SgBaseView >> initialize [ 
 

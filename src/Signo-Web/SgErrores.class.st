@@ -10,8 +10,10 @@ Class {
 { #category : #'error handling' }
 SgErrores class >> atCode: anInteger [
 
-	^ Errores at: anInteger ifAbsent: (SgError message:
-			   ('Código de error {1} no definido' format: { anInteger }))
+	| error |
+	error :=  Errores at: anInteger ifAbsent: [SgError message:
+			   ('Código de error {1} no definido' format: { anInteger })].
+	^ error copy
 ]
 
 { #category : #'error handling' }
@@ -70,6 +72,10 @@ SgErrores class >> initialize [
 			 'Repeticion de contraseña no informada. Debe introducir la repetición de contraseña'
 			 widgetId: 'input-passwordbis').
 	Errores at: 106 put: (SgError message: 'Importe invalido en la partida [{1}]').
-	Errores at: 107 put: (SgError message: 'Precio por litro en partida [{1}] inválido. No puede ser inferiore a 1.70€')
+	Errores at: 107 put: (SgError message: 'Precio por litro en partida [{1}] inválido. No puede ser inferiore a 1.70€').
+	Errores at: 108 put: (SgError message: 'Volumen no informada. Es Obligatorio').
+	Errores at: 109 put: (SgError message: 'Precio por litro no informado. Es obligatorio').
+	Errores at: 110 put: (SgError message: 'Tipo de producto no informado. Es obligatorio').
+	Errores at: 111 put: (SgError message: 'Volumen debe un valor positivo no cero')
 			
 ]

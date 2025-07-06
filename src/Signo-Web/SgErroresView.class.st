@@ -17,8 +17,7 @@ SgErroresView class >> with: aCollection [
 { #category : #accessing }
 SgErroresView >> errores: aCollection [
 
-	errores := aCollection copy.
-	aCollection removeAll
+	errores := aCollection
 ]
 
 { #category : #rendering }
@@ -28,8 +27,11 @@ SgErroresView >> renderContentOn: html [
 		html div
 			id: 'areaErrores';
 			with: [
-				html blockquote: [ errores do: [ :each | each renderOn: html ] ] ].
-			errores removeAll ]
+				html blockquote: [
+					html unorderedList: [ errores do: [ :each | html listItem: [each renderOn: html ] ] ] 
+				 ] ].
+		errores removeAll ]
+	ifEmpty: [ html div id: 'areaErrores' ]
 ]
 
 { #category : #rendering }

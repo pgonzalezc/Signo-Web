@@ -5,7 +5,7 @@ Class {
 		'tipo',
 		'volumen',
 		'precio',
-		'cuotaIva'
+		'mappings'
 	],
 	#category : #'Signo-Web-Models-m319'
 }
@@ -30,14 +30,25 @@ Sg319ModelProducto class >> volumen: aNumber precioLitro: anotherNumber [
 { #category : #accessing }
 Sg319ModelProducto >> cuotaIva [
 
-	cuotaIva := ((volumen * precio * 21.00s2)  / 100.00s2) round: 2.
-	^ cuotaIva
+	^ ((volumen * precio * 21.00s2)  / 100.00s2) round: 2
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelProducto >> noInformado [
+
+	^ self tipoNoInformado and: [ self volumenNoInformado and: [ self precioNoInformado ] ]
 ]
 
 { #category : #accessing }
 Sg319ModelProducto >> precio [
 	
 	^ precio
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelProducto >> precioNoInformado [
+
+	^ precio isNotNil or: [ precio <= 0.00 ]
 ]
 
 { #category : #printing }
@@ -56,7 +67,13 @@ Sg319ModelProducto >> printOn: aStream [
 		print: precio.
 	aStream
 		nextPutAll: ' cuotaIva: ';
-		print: cuotaIva
+		print: self cuotaIva
+]
+
+{ #category : #initialization }
+Sg319ModelProducto >> setPartidas: aDictionary [
+
+	mappings := aDictionary
 ]
 
 { #category : #'as yet unclassified' }
@@ -74,7 +91,7 @@ Sg319ModelProducto >> setTipo: aString [
 { #category : #initialization }
 Sg319ModelProducto >> setVolumen: aNumber [
 
-	volumen := aNumber round: 2
+	volumen := (aNumber round: 0) asInteger
 ]
 
 { #category : #accessing }
@@ -83,8 +100,35 @@ Sg319ModelProducto >> tipo [
 	^ tipo
 ]
 
+{ #category : #'as yet unclassified' }
+Sg319ModelProducto >> tipoNoInformado [
+
+	^ tipo isNil or: [ tipo trim isEmpty  ]
+]
+
+{ #category : #accessing }
+Sg319ModelProducto >> validate [
+
+	| errores |
+	errores := OrderedCollection new.
+	(self noInformado) ifFalse: [ 
+		tipo ifNil: [ errores add: ((SgErrores atCode: 110) widgetId: 'p',(mappings keyAtValue: #tipo)) ].
+		volumen ifNil: [ errores add: ((SgErrores atCode: 108) widgetId: 'p',(mappings keyAtValue: #volumen)) ].
+		volumen <= 0.00 ifTrue: [ errores add:  ((SgErrores atCode: 111) widgetId: 'p',(mappings keyAtValue: #volumen))].
+		precio ifNil: [ errores add: ((SgErrores atCode: 109) widgetId: 'p',(mappings keyAtValue: #precio)) ].
+		precio < 1.70 ifTrue: [ errores add: ((SgErrores atCode: 107) widgetId: 'p',(mappings keyAtValue: #precio)) ]
+		 ].
+	^ errores
+]
+
 { #category : #accessing }
 Sg319ModelProducto >> volumen [
 
 	^ volumen
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelProducto >> volumenNoInformado [
+
+	^ volumen isNotNil and: [ volumen <= 0.00 ]
 ]

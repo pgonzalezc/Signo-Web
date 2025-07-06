@@ -23,9 +23,15 @@ Sg319RootView class >> initialize [
 { #category : #'as yet unclassified' }
 Sg319RootView >> doSubmit [ 
 
-	children do: [ :c |
-		Transcript show: c decoratedComponent model asString; cr
+	| resp |
+	self hayErrores 
+		ifTrue: [ 
+			resp := self call: (WAYesOrNoDialog new)
 		 ]
+		ifFalse: [ 
+			children do: [ :c |
+				Transcript show: c decoratedComponent model asString; cr ]
+			]
 ]
 
 { #category : #initialization }

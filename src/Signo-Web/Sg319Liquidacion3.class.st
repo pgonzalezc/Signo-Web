@@ -34,7 +34,7 @@ Sg319Liquidacion3 >> reRenderLiquidacionOn: s [
 	s << (s jQuery id: #cuotaTotal) html: [ :r | self renderCuotaTotalOn: r].
 	s << (s jQuery id: #pagoACuenta) html: [ :r | self renderPagoACuentaOn: r ].
 	s << (s jQuery id: #tributacionPorTerritorio) html: [ :r | self renderTributacionPorTerritorioOn: r ].
-	s << (s jQuery id: #areaErrores) html: [ :r | (SgErroresView new errores: errores) renderOn: r ] 
+	s << (s jQuery id: #areaErrores) html: [ :r | (SgErroresView new errores: self model validate) renderOn: r ] 
 ]
 
 { #category : #enumerating }
@@ -173,27 +173,25 @@ Sg319Liquidacion3 >> renderProductosOn: html [
 { #category : #rendering }
 Sg319Liquidacion3 >> renderRowProducto1On: html [
 
-
 		html div class: 'column'; with: 'Producto 1' .
 		html div class: 'column'; with: [ 
-		html textInput class: 'input'; id: 'p01';  value: self model p01;
-			onChange: (html jQuery ajax callback: [:value | self model p01: value] value:(html jQuery this) value )
-		].
+		html select size: self tiposDeProductos size; list: self tiposDeProductos; selected: self model p01;
+			onChange: (html jQuery ajax callback: [:value | self model p01: value] value: (html jQuery this) value ) ].
 		html div class: 'column'; with: [  
-				html textInput id: 'p02';  style: 'text-align: right'; value: self model p02;
-					onChange: (html jQuery ajax callback: [ :value | self trataPartida02: value ] value: (html jQuery this) value; 
+				html textInput id: 'p02'; style: 'text-align: right'; value: self model p02;
+					onChange: (html jQuery ajax callback: [ :value | self model p02: value asNumber ] value: (html jQuery this) value; 
 					script: [ :s | 
 						self reRenderLiquidacionOn: s.
 						s << (s jQuery id: #p03) triggerSelect
 					] ) 
 			].
-		html div class: 'column'; with: [ html textInput id: 'p03';  style: 'text-align: right'; value: self model p03;
-			onChange: (html jQuery ajax callback: [ :value | self trataPartida03: value ] value: (html jQuery this) value; 
+		html div class: 'column'; with: [ html textInput id: 'p03'; style: 'text-align: right'; value: self model p03;
+			onChange: (html jQuery ajax callback: [ :value | self model p03: value asNumber] value: (html jQuery this) value; 
 			script: [ :s | 
 					self reRenderLiquidacionOn: s.
 					s << (s jQuery id: #p05) triggerSelect
 			]) ].
-		html div class: 'column'; with: [ html textInput id: 'p04'; readonly: true;  style: 'text-align: right'; value: self model p04 ]
+		html div class: 'column'; with: [ html textInput id: 'p04'; readonly: true;  style: 'text-align: right'; value: self model p04  ]
 ]
 
 { #category : #rendering }
@@ -343,11 +341,17 @@ Sg319Liquidacion3 >> renderTributacionPorTerritorioOn: html [
 ]
 
 { #category : #'as yet unclassified' }
+Sg319Liquidacion3 >> tiposDeProductos [
+
+	^ #('Gasolina 95' 'Gasolina 98' 'Gasoleo normal' 'Gasoleo super' 'dasoleo agrícola')
+]
+
+{ #category : #'as yet unclassified' }
 Sg319Liquidacion3 >> trataPartida02: aNumberString [
 
 	| imp |
-	imp := Number readFrom: aNumberString ifFail: [ self addError: (SgErrores atCode: 106). 0.00].
-	self model p02: imp.
+	imp := Number readFrom: aNumberString ifFail: [ self addError: (SgErrores atCode: 106). 0].
+	self model p02: imp
 	
 ]
 

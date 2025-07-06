@@ -13,12 +13,18 @@ Sg319ModelLiquidacion >> initialize [
 
 	super initialize.
 	productos := OrderedCollection 
-		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00)
-		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00)
-		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00)
-		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00)
-		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00)
-		with: (Sg319ModelProducto volumen: 0.00 precioLitro: 0.00).
+		with: ((Sg319ModelProducto volumen: 0 precioLitro: 0.00)
+			setPartidas: { '01' -> #tipo . '02' -> #volumen . '03' -> #precio . '04' -> #cuotaIva }  asDictionary )
+		with: ((Sg319ModelProducto volumen: 0 precioLitro: 0.00 )
+			setPartidas: { '05' -> #tipo . '06' -> #volumen . '07' -> #precio . '08' -> #cuotaIva }  asDictionary )
+		with: ((Sg319ModelProducto volumen: 0 precioLitro: 0.00 )
+			setPartidas: { '09'-> #tipo . '10' -> #volumen . '11' -> #precio . '12' -> #cuotaIva }  asDictionary)
+		with: ((Sg319ModelProducto volumen: 0 precioLitro: 0.00 )
+			setPartidas: { '13' -> #tipo . '14' -> #volumen . '15' -> #precio . '16' -> #cuotaIva }  asDictionary)
+		with: ((Sg319ModelProducto volumen: 0 precioLitro: 0.00 )
+			setPartidas: { '17' -> #tipo . '18' -> #volumen . '19' -> #precio . '20' -> #cuotaIva }  asDictionary)
+		with: ((Sg319ModelProducto volumen: 0 precioLitro: 0.00 )
+			setPartidas: { '21' -> #tipo . '22' -> #volumen . '23' -> #precio . '24' -> #cuotaIva }  asDictionary).
 	porcentajes := OrderedCollection with: 0.0 with: 0.0 with: 0.0 with: 0.0 with: 0.0
 		
 ]
@@ -391,4 +397,21 @@ Sg319ModelLiquidacion >> printOn: aStream [
 		p := (self p26 * each / 100.00) round: 2.
 		aStream tab; print: p  ; cr
 		]
+]
+
+{ #category : #'as yet unclassified' }
+Sg319ModelLiquidacion >> producto1 [
+
+	^ productos at: 1
+	
+	
+]
+
+{ #category : #accessing }
+Sg319ModelLiquidacion >> validate [
+
+	| errores |
+	errores := OrderedCollection new.
+	productos do: [ :each | errores addAll: (each validate) ].
+	^ errores
 ]
