@@ -1,12 +1,11 @@
 Class {
 	#name : #SgSoapFault,
-	#superclass : #Object,
+	#superclass : #SgSoap,
 	#instVars : [
 		'code',
 		'string',
 		'actor',
-		'detail',
-		'qname'
+		'detail'
 	],
 	#category : #'Signo-Web-Utils'
 }
@@ -19,38 +18,14 @@ SgSoapFault class >> code: aCode string: aString [
 		string: aString
 ]
 
-{ #category : #'as yet unclassified' }
-SgSoapFault class >> defaultNamespaceV1_1 [
-
-	^ 'http://www.w3.org/2003/05/soap-envelope'
-]
-
-{ #category : #'as yet unclassified' }
-SgSoapFault class >> defaultPrefixV1_1 [
-
-	^ 'SOAP_ENV'
-]
-
-{ #category : #'as yet unclassified' }
-SgSoapFault class >> defaultQname [
-
-	^ SgQName prefix: self defaultPrefixV1_1 uri: self defaultNamespaceV1_1 
-]
-
-{ #category : #'as yet unclassified' }
-SgSoapFault class >> soapFaultVersionMismatch [
-
-	^ 'VersionMismatch'
-]
-
 { #category : #converting }
-SgSoapFault >> asXml [
+SgSoapFault >> asString [
 
 	| writer |
 	writer := XMLWriter new.
-	writer tag: self qName prefix,':Fault' with: [ 
-		writer tag: self qName prefix,':code' with: code.
-		writer tag: self qName prefix,':string' with: string
+	writer tag: self prefix,':Fault' with: [ 
+		writer tag: self prefix,':code' with: code asString.
+		writer tag: self prefix,':string' with: string
 		 ].
 	
 	^ writer asString
@@ -60,18 +35,6 @@ SgSoapFault >> asXml [
 SgSoapFault >> code: aCode [
 
 	code := aCode
-]
-
-{ #category : #'as yet unclassified' }
-SgSoapFault >> qName [
-
-	^ qname ifNil: [ qname := self class defaultQname  ]
-]
-
-{ #category : #'as yet unclassified' }
-SgSoapFault >> qName: aQName [
-
-	qname := aQName
 ]
 
 { #category : #initialization }

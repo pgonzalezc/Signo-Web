@@ -12,16 +12,36 @@ SgSoapHandler class >> initialize [
 
 { #category : #handling }
 SgSoapHandler >> handleFiltered: aRequest [
-
-	aRequest respond: [ :response | |payload tree|
+	
+	aRequest respond: [ :response | | tree respHeader respBody |
 		response contentType: WAMimeType textPlain.
 		
-		payload := aRequest request postFields at: 'payload'.
-		response nextPutAll: payload; nextPut: Character cr; nextPut: Character cr.
-		
-		tree := (XMLDOMParser on: payload) parseDocument.
-		
-		response nextPutAll: (tree xpath: '//soap:Header') first; nextPut: Character cr; nextPut: Character cr.
-		response nextPutAll: (tree xpath: '//soap:Body') first
+		[ tree := (XMLDOMParser on: aRequest request rawBody) parseDocument ] 
+			on: XMLWellFormednessException
+			do: [ :ex | | responseMsg | 
+				responseMsg := SgSoapMessage new body: (SgSoapFault code: 500 string: ex messageText) asString .
+				^ response nextPutAll: responseMsg ].
+		 
+		respHeader := self processHeader: (tree xpath: '//SOAP_ENV:Header') first.
+		respBody := self processBody: (tree xpath: '//SOAP_ENV:Body') first.
+		response nextPutAll: respHeader.
+		response nextPutAll: respBody
 	]
+]
+
+{ #category : #'as yet unclassified' }
+SgSoapHandler >> processBody: anXml [
+
+	| data  |
+	data := OrderedCollection new.
+	(anXml allElementsNamed: 'presentador') first elementsDo: [ :e |
+			data add: e name -> e contentString.
+		 ].
+	^ data  
+]
+
+{ #category : #'as yet unclassified' }
+SgSoapHandler >> processHeader: anXml [
+
+	anXml hasChildren not ifTrue: [ ^ '' ]
 ]
