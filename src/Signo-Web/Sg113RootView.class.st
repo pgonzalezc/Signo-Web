@@ -7,6 +7,24 @@ Class {
 	#category : #'Signo-Web-Views'
 }
 
+{ #category : #'as yet unclassified' }
+Sg113RootView class >> identificaciobnSetingsOn: aBuilder [
+
+<systemsettings>
+	(aBuilder group: #m113)
+		label: 'Modelo 113';
+		description: 'Valores de configuración del modelo 113';
+		parent: #modelosTributarios;
+		noOrdering;
+	with: [ 	(aBuilder group: #m113Identificacion)
+				label: 'Identificación';
+				description:
+					'Sección para la configuración de la vista de Identificación' ].
+	Sg113IdentificacionSettings
+		settingsOn: aBuilder
+		at: #m113Identificacion
+]
+
 { #category : #'class initialization' }
 Sg113RootView class >> initialize [ 
 

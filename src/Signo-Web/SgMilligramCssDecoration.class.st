@@ -14,8 +14,7 @@ SgMilligramCssDecoration >> handleAnswer: aResponse [
 { #category : #rendering }
 SgMilligramCssDecoration >> renderContentOn: html [
 
-	html div class: 'container'; with: [ 
-	self renderNextOn: html ]
+	self renderNextOn: html 
 ]
 
 { #category : #updating }

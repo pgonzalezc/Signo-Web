@@ -139,9 +139,10 @@ SgHelloWorld >> seleccionar [
 SgHelloWorld >> showTable [
 
 	| component answer |
-	component := WATableReport new
+	component := SgTest01TableReport new
 		             rows: SgTest01 selectAll;
 		             columns: (OrderedCollection new
+									add: (WAReportColumn selector: #id title: 'id');
 				              add:
 					              (WAReportColumn selector: #clave title: 'Clave');
 				              add:
@@ -153,10 +154,10 @@ SgHelloWorld >> showTable [
 	component addDecoration:
 		(WAMessageDecoration new message: 'Tabla signo.test01').
 	component addDecoration: SgMilligramCssDecoration new.
-	component addDecoration: (WAFormDecoration new buttons: #( #cerrar)).
+	component addDecoration: (WAFormDecoration new buttons: #( #cerrar )).
 	answer := self call: component.
 	Transcript
-		show: ('showTable respuesta recibda: [{1}]' format: { answer });
+		show: ('showTable respuesta recibida: [{1}]' format: { answer });
 		cr
 ]
 

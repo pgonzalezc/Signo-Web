@@ -36,6 +36,6 @@ SgTest01 class >> putClave: aString withValue: anotherString [
 SgTest01 class >> selectAll [
 
 	^ (P3Client new url: SgGestionTablas  connInfo) in: [ :client |
-		  (client query: 'SELECT id, clave, valor FROM signo.test01')
+		  (client query: 'SELECT id, key, val FROM signo.test01')
 			  records collect: [ :tupla | SgTest01Model fromTuple: tupla ] ]
 ]

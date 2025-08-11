@@ -40,7 +40,7 @@ SgTestIdentificacion >> initialize [
 		            with: (SgDeclComplementaria new addDecoration:
 				             (WAMessageDecoration new message:
 					              'Declaracion complementaria o sustitutiva'))
-		            with: (SgDevengo new addDecoration:
+		            with: ((SgDevengo new periodosValidos: SgMPeriodo trimestrales, SgMPeriodo anual) addDecoration:
 				             (WAMessageDecoration new message: 'Devengo'))
 ]
 

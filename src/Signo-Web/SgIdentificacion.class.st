@@ -9,43 +9,22 @@ Class {
 	#name : #SgIdentificacion,
 	#superclass : #SgBaseView,
 	#instVars : [
-		'identificacion'
-	],
-	#classVars : [
-		'ApellidosSplitted'
+		'identificacion',
+		'settings'
 	],
 	#category : #'Signo-Web-Views'
 }
 
 { #category : #'as yet unclassified' }
-SgIdentificacion class >> apellidosSettingsOn: aBuilder [
-
-	<systemsettings>
-	(aBuilder setting: #apellidosSplitted)
-		target: SgIdentificacion;
-		label: '¿Recogida de los apellidos por separado?' translated;
-		description:
-			'Si se marca el checkbox los apellidos se recogen pon separado (Primer apellido, Segundo apellido), sino
-		se recogen ambos en un sólo campo (Apellidos)';
-		parent: #greetings
-]
-
-{ #category : #'as yet unclassified' }
-SgIdentificacion class >> apellidosSplitted [
-
-	^ ApellidosSplitted ifNil: [ ApellidosSplitted := false ]
-]
-
-{ #category : #'as yet unclassified' }
-SgIdentificacion class >> apellidosSplitted: aBoolean [
-
-	ApellidosSplitted := aBoolean
-]
-
-{ #category : #'as yet unclassified' }
 SgIdentificacion >> answerIdentificacion [
 
 	self answer: self identificacion
+]
+
+{ #category : #'as yet unclassified' }
+SgIdentificacion >> apellidosSeparados [ 
+
+	^ settings ifNil: [ false ] ifNotNil: [ settings apellidosSeparados ] 
 ]
 
 { #category : #accessing }
@@ -75,7 +54,7 @@ SgIdentificacion >> renderContentOn: html [
 					class: 'column';
 					with: [ self renderFieldNombreOn: html ] ].
 
-		self class apellidosSplitted
+		self apellidosSeparados
 			ifFalse: [ self renderFieldApellidosOn: html ]
 			ifTrue: [
 				self renderFieldApellido1On: html.
@@ -170,4 +149,11 @@ SgIdentificacion >> renderFieldNombreOn: html [
 			maxLength: 45;
 			value: self identificacion nombre;
 			callback: [ :value | identificacion nombre: value ] 
+]
+
+{ #category : #accessing }
+SgIdentificacion >> settings: aSettingObject [
+
+	"Establece el objeto con los settings a utilizar"
+	settings := aSettingObject
 ]

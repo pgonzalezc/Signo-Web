@@ -14,6 +14,23 @@ Sg319RootView class >> canBeRoot [
 	^ true
 ]
 
+{ #category : #'as yet unclassified' }
+Sg319RootView class >> identificacionSettingsOn: aBuilder [
+
+	<systemsettings>
+	(aBuilder group: #m319)
+		label: 'Modelo 319';
+		description: 'Valores de configuración del modelo 319';
+		parent: #modelosTributarios;
+		noOrdering;
+		with: [ 
+	(aBuilder group: #m319Identificacion)
+		label: 'Identificación';
+		description: 'Sección para la configuración de la vista de Identificación';
+		parent: #m319 ].
+	Sg319IdentificacionSettings settingsOn: aBuilder at: #m319Identificacion
+]
+
 { #category : #'class initialization' }
 Sg319RootView class >> initialize [ 
 
@@ -39,7 +56,7 @@ Sg319RootView >> initialize [
 
 	super initialize.
 	children := OrderedCollection
-		            with: (SgIdentificacion new addDecoration:
+		            with: (SgIdentificacion new addDecoration: 
 				             (WAMessageDecoration new message:
 					              'Identificacion (1)'))
 		            with: ((SgDevengo new periodosValidos:
