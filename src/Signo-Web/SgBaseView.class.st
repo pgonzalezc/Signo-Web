@@ -22,15 +22,6 @@ SgBaseView class >> initialize [
 	ConversorImp := GRSignPrinter new , (GRNumberPrinter new precision: 2)
 ]
 
-{ #category : #settings }
-SgBaseView class >> settingsOn: aBuilder [
-
-	<systemsettings>
-	(aBuilder group: #modelosTributarios)
-		label: 'Modelos tributarios' translated;
-		description: 'Configuración de los modelos tributarios'
-]
-
 { #category : #adding }
 SgBaseView >> addError: aSgError [
 

@@ -14,25 +14,6 @@ Sg309RootView class >> canBeRoot [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
-Sg309RootView class >> identificacionSettingsOn: aBuilder [
-
-	<systemsettings>
-	(aBuilder group: #m309)
-		label: 'Modelo 309';
-		description: 'Valores de configuración del modelo 309';
-		parent: #modelosTributarios;
-		noOrdering;
-	with: [ 	(aBuilder group: #m309Identificacion)
-				label: 'Identificación';
-				description:
-					'Sección para la configuración de la vista de Identificación';
-				parent: #m309 ].
-	Sg309IdentificacionSettings
-		settingsOn: aBuilder
-		at: #m309Identificacion
-]
-
 { #category : #'class initialization' }
 Sg309RootView class >> initialize [ 
 	
