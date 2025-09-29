@@ -1,32 +1,34 @@
 Class {
-	#name : #SgTestIdentificacion2,
-	#superclass : #SgBaseView,
+	#name : 'SgTestIdentificacion2',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'children'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgTestIdentificacion2 class >> canBeRoot [ 
 	
 	^true
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgTestIdentificacion2 class >> initialize [
 
 	<script>
 	WAAdmin register: self asApplicationAt: 'signo/test/identificacion2'
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 SgTestIdentificacion2 >> children [
 
 	^ children values
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgTestIdentificacion2 >> initialize [
 
 	super initialize.
@@ -46,7 +48,7 @@ SgTestIdentificacion2 >> initialize [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgTestIdentificacion2 >> renderAnchorFor: aSymbol on: html [
 
 	html anchor
@@ -61,7 +63,7 @@ SgTestIdentificacion2 >> renderAnchorFor: aSymbol on: html [
 				url: '/static-files/img/external-link-symbolic.svg' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgTestIdentificacion2 >> renderContentOn: html [
 
 	html div

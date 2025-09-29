@@ -1,10 +1,12 @@
 Class {
-	#name : #SgSoapHeader,
-	#superclass : #SgSoap,
-	#category : #'Signo-Web-Utils'
+	#name : 'SgSoapHeader',
+	#superclass : 'SgSoap',
+	#category : 'Signo-Web-Utils',
+	#package : 'Signo-Web',
+	#tag : 'Utils'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 SgSoapHeader >> asString [
 
 	| writer |

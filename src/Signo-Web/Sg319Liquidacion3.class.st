@@ -1,33 +1,35 @@
 Class {
-	#name : #Sg319Liquidacion3,
-	#superclass : #SgBaseView,
+	#name : 'Sg319Liquidacion3',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'modelo'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Sg319Liquidacion3 class >> withModel: aModel [
 
 	^ (self new)
 		setModelo: aModel
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg319Liquidacion3 >> initialize [ 
 
 	super initialize .
 	modelo := Sg319ModelLiquidacion new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg319Liquidacion3 >> model [ 
 
 	^ modelo
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319Liquidacion3 >> reRenderLiquidacionOn: s [
 
 	s << (s jQuery id: #productos) html: [ :r | self renderProductosOn: r ].
@@ -37,14 +39,14 @@ Sg319Liquidacion3 >> reRenderLiquidacionOn: s [
 	s << (s jQuery id: #areaErrores) html: [ :r | (SgErroresView new errores: self model validate) renderOn: r ] 
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Sg319Liquidacion3 >> reRenderProcentajesTributacionOn: s thenSelect: aSymbol [
 
 	s << (s jQuery id: #tributacionPorTerritorio) html: [ :r | self renderTributacionPorTerritorioOn: r ].
 	s << (s jQuery id: aSymbol) triggerSelect
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderCabecerasProductosOn: html [
 
 	html div class: 'row'; with: [ 
@@ -56,7 +58,7 @@ Sg319Liquidacion3 >> renderCabecerasProductosOn: html [
 		 ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderCabecerasTerritoriosOn: html [
 
 		html div class: 'column'.
@@ -67,7 +69,7 @@ Sg319Liquidacion3 >> renderCabecerasTerritoriosOn: html [
 		html div class: 'column'; with: [ html label: 'Territorio común' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderContentOn: html [
 
 	html div class: 'container'; with: [ 
@@ -78,7 +80,7 @@ Sg319Liquidacion3 >> renderContentOn: html [
 	self renderTributacionPorTerritorioOn: html ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderCuotaTotalOn: html [
 
 	html div id: #cuotaTotal; class: 'row'; with: [ 
@@ -87,7 +89,7 @@ Sg319Liquidacion3 >> renderCuotaTotalOn: html [
 	]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderDepositoFiscalOn: html [
 
 	html div class: 'row'; with: [
@@ -96,7 +98,7 @@ Sg319Liquidacion3 >> renderDepositoFiscalOn: html [
 			html textInput id: 'CAE' ]].
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderPagoACuentaOn: html [
 
 	html div id: #pagoACuenta; class: 'row'; with: [ 
@@ -105,7 +107,7 @@ Sg319Liquidacion3 >> renderPagoACuentaOn: html [
 	]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderPagoACuentaTerritoriosOn: html [
 
 	html div class: 'column'; with: 'Pago a cuenta atribuible'.
@@ -121,7 +123,7 @@ Sg319Liquidacion3 >> renderPagoACuentaTerritoriosOn: html [
 			html textInput id: #p36; value: self model p36; disabled: true ].
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319Liquidacion3 >> renderPorcentajesTributacionOn: html [
 
 	html div class: 'column'; with: '% de tributación'.
@@ -154,7 +156,7 @@ Sg319Liquidacion3 >> renderPorcentajesTributacionOn: html [
 	 ].
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderProductosOn: html [
 
 	html div id: #productos; with: [ 
@@ -170,7 +172,7 @@ Sg319Liquidacion3 >> renderProductosOn: html [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderRowProducto1On: html [
 
 		html div class: 'column'; with: 'Producto 1' .
@@ -194,7 +196,7 @@ Sg319Liquidacion3 >> renderRowProducto1On: html [
 		html div class: 'column'; with: [ html textInput id: 'p04'; readonly: true;  style: 'text-align: right'; value: self model p04  ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderRowProducto2On: html [
 
 		html div class: 'column'; with: 'Producto 2' .
@@ -221,7 +223,7 @@ Sg319Liquidacion3 >> renderRowProducto2On: html [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderRowProducto3On: html [
 
 		html div class: 'column'; with: 'Producto 3' .
@@ -248,7 +250,7 @@ Sg319Liquidacion3 >> renderRowProducto3On: html [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderRowProducto4On: html [
 
 		html div class: 'column'; with: 'Producto 4' .
@@ -275,7 +277,7 @@ Sg319Liquidacion3 >> renderRowProducto4On: html [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderRowProducto5On: html [
 
 		html div class: 'column'; with: 'Producto 5' .
@@ -302,7 +304,7 @@ Sg319Liquidacion3 >> renderRowProducto5On: html [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderRowProducto6On: html [
 
 		html div class: 'column'; with: 'Producto 6' .
@@ -329,7 +331,7 @@ Sg319Liquidacion3 >> renderRowProducto6On: html [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319Liquidacion3 >> renderTributacionPorTerritorioOn: html [
 
 	html div id: #tributacionPorTerritorio; with: [ 
@@ -340,13 +342,13 @@ Sg319Liquidacion3 >> renderTributacionPorTerritorioOn: html [
 		 ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319Liquidacion3 >> tiposDeProductos [
 
 	^ #('Gasolina 95' 'Gasolina 98' 'Gasoleo normal' 'Gasoleo super' 'dasoleo agrícola')
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319Liquidacion3 >> trataPartida02: aNumberString [
 
 	| imp |
@@ -355,7 +357,7 @@ Sg319Liquidacion3 >> trataPartida02: aNumberString [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319Liquidacion3 >> trataPartida03: aNumberString [
 
 	| imp |
@@ -364,7 +366,7 @@ Sg319Liquidacion3 >> trataPartida03: aNumberString [
 	imp < 1.70 ifTrue: [ self addError: ((SgErrores atCode: 107 withText: { 'p03' }) widgetId: #p03 )]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319Liquidacion3 >> trataPartida06: aNumberString [
 
 	| imp err |
@@ -374,7 +376,7 @@ Sg319Liquidacion3 >> trataPartida06: aNumberString [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319Liquidacion3 >> trataPartida07: aNumberString [
 
 	| imp |

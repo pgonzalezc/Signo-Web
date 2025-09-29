@@ -1,23 +1,25 @@
 Class {
-	#name : #SgMilligramCssDecoration,
-	#superclass : #WADecoration,
-	#category : #'Signo-Web-Views'
+	#name : 'SgMilligramCssDecoration',
+	#superclass : 'WADecoration',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #delegation }
+{ #category : 'delegation' }
 SgMilligramCssDecoration >> handleAnswer: aResponse [
 
 	aResponse inspect.
 	^ false
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgMilligramCssDecoration >> renderContentOn: html [
 
 	self renderNextOn: html 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 SgMilligramCssDecoration >> updateRoot: aHtmlRoot [
 
 	super updateRoot: aHtmlRoot .

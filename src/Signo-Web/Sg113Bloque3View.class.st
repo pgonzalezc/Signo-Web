@@ -1,32 +1,34 @@
 Class {
-	#name : #Sg113Bloque3View,
-	#superclass : #SgBaseView,
+	#name : 'Sg113Bloque3View',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'modelo'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg113Bloque3View >> initialize [ 
 
 	super initialize.
 	modelo := Sg113ModelBloque3 new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg113Bloque3View >> model [
 
 	^ modelo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg113Bloque3View >> modelo [
 
 	^ modelo
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque3View >> renderBloqueLiquidacionOn: html [
 
 	self focusId ifNotEmpty: [
@@ -41,7 +43,7 @@ Sg113Bloque3View >> renderBloqueLiquidacionOn: html [
 	self renderTotalGananciasPatrimoniales: html
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque3View >> renderContentOn: html [
 
 	html div with: [
@@ -67,7 +69,7 @@ Sg113Bloque3View >> renderContentOn: html [
 				 ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque3View >> renderDenominacionOn: html [
 
 	html div
@@ -84,7 +86,7 @@ Sg113Bloque3View >> renderDenominacionOn: html [
 				with: [ html textInput ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque3View >> renderGananciaPatrimonialOn: html [
 
 	html div
@@ -113,7 +115,7 @@ Sg113Bloque3View >> renderGananciaPatrimonialOn: html [
 						value: (ConversorImp print: self modelo gananciaPatrimonial2) ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque3View >> renderPorcetajeTitularidadOn: html [
 
 	html div
@@ -160,7 +162,7 @@ Sg113Bloque3View >> renderPorcetajeTitularidadOn: html [
 											 self renderBloqueLiquidacionOn: r ] ]) ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque3View >> renderTotalGananciasPatrimoniales: html [
 
 	html div
@@ -184,7 +186,7 @@ Sg113Bloque3View >> renderTotalGananciasPatrimoniales: html [
 						value: (ConversorImp print: self modelo gananciaPatrimonial) ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque3View >> renderValorAdquisicionOn: html [
 
 	html div
@@ -230,7 +232,7 @@ Sg113Bloque3View >> renderValorAdquisicionOn: html [
 											 :renderer | self renderBloqueLiquidacionOn: renderer ] ]) ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque3View >> renderValorMercadoOn: html [
 
 	html div
@@ -277,7 +279,7 @@ Sg113Bloque3View >> renderValorMercadoOn: html [
 											 self renderBloqueLiquidacionOn: r ] ]) ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg113Bloque3View >> tituloBloque [
 
 	^ '3. Comunicación de la opción por las especialidades previstas en el apartado 6 del artículo 95 bis de la Ley del Impuesto sobre la Renta de las Personas Fisicas'

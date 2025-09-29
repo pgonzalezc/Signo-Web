@@ -1,43 +1,28 @@
 Class {
-	#name : #Sg319RootView,
-	#superclass : #SgBaseView,
+	#name : 'Sg319RootView',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'modelo',
 		'children'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 Sg319RootView class >> canBeRoot [ 
 
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
-Sg319RootView class >> identificacionSettingsOn: aBuilder [
-
-	<systemsettings>
-	(aBuilder group: #m319)
-		label: 'Modelo 319';
-		description: 'Valores de configuración del modelo 319';
-		parent: #modelosTributarios;
-		noOrdering;
-		with: [ 
-	(aBuilder group: #m319Identificacion)
-		label: 'Identificación';
-		description: 'Sección para la configuración de la vista de Identificación';
-		parent: #m319 ].
-	Sg319IdentificacionSettings settingsOn: aBuilder at: #m319Identificacion
-]
-
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Sg319RootView class >> initialize [ 
 
 	WAAdmin register:  self asApplicationAt: '/signo/m319'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319RootView >> doSubmit [ 
 
 	| resp |
@@ -51,23 +36,24 @@ Sg319RootView >> doSubmit [
 			]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg319RootView >> initialize [
 
+	"Inicializamos los elementos padre"
 	super initialize.
 	children := OrderedCollection
-		            with: (SgIdentificacion new addDecoration: 
+		            with: (SgIdentificacion new addDecoration:
 				             (WAMessageDecoration new message:
 					              'Identificacion (1)'))
 		            with: ((SgDevengo new periodosValidos:
 				              SgMPeriodo mensuales , SgMPeriodo trimestrales)
 				             addDecoration:
 				             (WAMessageDecoration new message: 'Devengo (2)'))
-				with: ((Sg319Liquidacion3 new addDecoration: (WAMessageDecoration new message: 'Liquidacion (3)')))
-
+		            with: (Sg319Liquidacion3 new addDecoration:
+				             (WAMessageDecoration new message: 'Liquidacion (3)'))
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg319RootView >> renderContentOn: html [
 
 	html form: [
@@ -84,13 +70,13 @@ Sg319RootView >> renderContentOn: html [
 			 ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319RootView >> subtitle [
 
 	^ 'Pago a cuenta del IVA correspondiente a las entregas de gasolinas, gasóleos y biocarburantes posteriores a la ultimación del régimen de depósito distinto del aduanero'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg319RootView >> title [
 
 	^ 'Inpuesto sobre el Valor Añadido'

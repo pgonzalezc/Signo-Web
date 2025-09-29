@@ -1,26 +1,28 @@
 Class {
-	#name : #Sg113Bloque4View,
-	#superclass : #SgBaseView,
+	#name : 'Sg113Bloque4View',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'modelo'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg113Bloque4View >> initialize [ 
 
 	super initialize.
 	modelo := Sg113ModelBloque4 new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg113Bloque4View >> model [ 
 
 	^ modelo
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderCheckBoxAOn: html [
 
 	html html:
@@ -39,7 +41,7 @@ Sg113Bloque4View >> renderCheckBoxAOn: html [
 	html break
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderCheckBoxBOn: html [
 
 	html html: 'b) <strong>COMUNICO</strong> el cambio de domicilio'.
@@ -56,7 +58,7 @@ Sg113Bloque4View >> renderCheckBoxBOn: html [
 	html break
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderCheckBoxCOn: html [
 
 	html html:
@@ -74,7 +76,7 @@ Sg113Bloque4View >> renderCheckBoxCOn: html [
 	html break
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderCheckBoxesOn: html [
 
 	self renderCheckBoxAOn: html.
@@ -82,7 +84,7 @@ Sg113Bloque4View >> renderCheckBoxesOn: html [
 	self renderCheckBoxCOn: html
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderContentOn: html [
 
 	html document addLoadScript: (JSStream on: 'main()').
@@ -94,7 +96,7 @@ Sg113Bloque4View >> renderContentOn: html [
 		self renderLiquidacionOn: html ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderDenominacionOn: html [
 
 	html div
@@ -111,7 +113,7 @@ Sg113Bloque4View >> renderDenominacionOn: html [
 				with: [ html textInput id: '4-denominacion-2'; callback: [ :value | self model setDenominacion2: value ]; value: self model denominacion2 ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderGananciaPatrimonialOn: html [
 
 	html div
@@ -140,7 +142,7 @@ Sg113Bloque4View >> renderGananciaPatrimonialOn: html [
 						value: self model gananciaPatrimonial2 ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderHeadersOn: html [
 
 	html div class: 'row';
@@ -151,7 +153,7 @@ Sg113Bloque4View >> renderHeadersOn: html [
 			 ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderLiquidacionOn: html [
 
 	self renderHeadersOn: html.
@@ -164,7 +166,7 @@ Sg113Bloque4View >> renderLiquidacionOn: html [
 	self renderTotalGanaciasPatrimoniales: html
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderPorcentajeTitularidadOn: html [
 
 	html div
@@ -193,7 +195,7 @@ Sg113Bloque4View >> renderPorcentajeTitularidadOn: html [
 						value: self model porcentajeTitularidad2 ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderTotalGanaciasPatrimoniales: html [
 
 	html div
@@ -214,7 +216,7 @@ Sg113Bloque4View >> renderTotalGanaciasPatrimoniales: html [
 						value: self model totalGananciasPatrimoniales ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderValorAdquisionOn: html [
 
 	html div
@@ -249,7 +251,7 @@ Sg113Bloque4View >> renderValorAdquisionOn: html [
 						value: self model valorAdquisicion2 ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderValorMercadoOn: html [
 
 	html div
@@ -284,7 +286,7 @@ Sg113Bloque4View >> renderValorMercadoOn: html [
 				 ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113Bloque4View >> renderValorTransmisionOn: html [
 
 	html div
@@ -319,7 +321,7 @@ Sg113Bloque4View >> renderValorTransmisionOn: html [
 						value: self model valorTransmision2 ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg113Bloque4View >> tituloBloque [ 
 
 	^ '4. Comunicación de variación de circustancias.'

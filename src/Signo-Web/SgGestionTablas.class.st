@@ -1,10 +1,12 @@
 Class {
-	#name : #SgGestionTablas,
-	#superclass : #Object,
-	#category : #'Signo-Web-DBs'
+	#name : 'SgGestionTablas',
+	#superclass : 'Object',
+	#category : 'Signo-Web-DBs',
+	#package : 'Signo-Web',
+	#tag : 'DBs'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> TableTweeerMessage [
 
 	<script>
@@ -55,7 +57,7 @@ SgGestionTablas class >> TableTweeerMessage [
 	self inform: 'Creada la tabla tweeter.message'
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SgGestionTablas class >> addUser: aFollowerUserCode asFollowerOf: aFollowedUserCode [
 	"Se añade 'aUserCode' como seguidor de 'OtherUserCode'. ver tabla tweeter.user"
 
@@ -71,7 +73,7 @@ SgGestionTablas class >> addUser: aFollowerUserCode asFollowerOf: aFollowedUserC
 			client close ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> camposDelModelo: unModelo ejercicio: unEjercicio [
 	""
 
@@ -89,13 +91,13 @@ SgGestionTablas class >> camposDelModelo: unModelo ejercicio: unEjercicio [
 				  client close ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> connInfo [ 
 	
 	^ 'psql://ratodalua:rat0da.ua@127.0.0.1:5432/ratodalua'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> createUser: aTweeterUser [
 
 	(P3Client new url: self connInfo) in: [ :client |
@@ -109,7 +111,7 @@ SgGestionTablas class >> createUser: aTweeterUser [
 				client close ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> ejercicios [
 
 	^ (P3Client new url: self connInfo) in: [ :client |
@@ -119,7 +121,7 @@ SgGestionTablas class >> ejercicios [
 			  data flattened ] ensure: [ client close ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> findMessagesOf: aCollectionOfUserCodes [
 	"Devuelve una colleccion con los mensajes de la lista de usuarios que se le pasa
 	ordenados del mas reciente al mas antiguo. De cada usuario sólo se cogen hata un 
@@ -139,7 +141,7 @@ SgGestionTablas class >> findMessagesOf: aCollectionOfUserCodes [
 			  client close ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> findUser: aString [
 
 	^ (P3Client new url: self connInfo) in: [ :client |
@@ -154,7 +156,7 @@ SgGestionTablas class >> findUser: aString [
 			  client close ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> insertModelo: unModelo [
 
 	(P3Client new url: self connInfo) in: [ :client |
@@ -167,13 +169,13 @@ SgGestionTablas class >> insertModelo: unModelo [
 			client close ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> limitMessages [
 
 	^ 5
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> modelosDelEjercicio: anInteger [
 
 	^ (P3Client new url: self connInfo) in: [ :client |
@@ -188,7 +190,7 @@ SgGestionTablas class >> modelosDelEjercicio: anInteger [
 				  client close ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> tableSignoPt02Modelos [
 
 	<script>
@@ -224,7 +226,7 @@ SgGestionTablas class >> tableSignoPt02Modelos [
 	self inform: 'Creada la tabla signo.pt02_modelos'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> tableSignoPt04Campos [
 
 	<script>
@@ -269,7 +271,7 @@ SgGestionTablas class >> tableSignoPt04Campos [
 	self inform: 'Creada la tabla signo.pt02_modelos'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> tableTest01 [
 
 	(P3Client new url: self connInfo) in: [ :client |
@@ -282,7 +284,7 @@ SgGestionTablas class >> tableTest01 [
 			'insert into signo.test01 (key, val) values(''signo.test.clave2'',''clave2'')' ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgGestionTablas class >> tableTweeterUser [
 	"Crea la tabla tweeer.user y la carga con dos tuplas de ejemplo.
 	

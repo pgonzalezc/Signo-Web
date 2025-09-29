@@ -1,33 +1,35 @@
 Class {
-	#name : #SgDatePickerTestView,
-	#superclass : #SgBaseView,
+	#name : 'SgDatePickerTestView',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'children',
 		'selection'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgDatePickerTestView class >> canBeRoot [ 
 		
 	^ true
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgDatePickerTestView class >> initialize [ 
 
 	<script>
 	WAAdmin register:  self asApplicationAt: 'signo/test/datepicker'
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 SgDatePickerTestView >> children [
 
 	^ children
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDatePickerTestView >> columnsDefs [
 
 	^ OrderedCollection new
@@ -78,7 +80,7 @@ SgDatePickerTestView >> columnsDefs [
 		  yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgDatePickerTestView >> initialize [
 
 	super initialize.
@@ -87,13 +89,13 @@ SgDatePickerTestView >> initialize [
 			             rows: (SgGestionTablas modelosDelEjercicio: 2023))
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgDatePickerTestView >> model [ 
 
 	^ nil
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDatePickerTestView >> renderContentOn: html [
 
 	html div class: 'container'; with: [ 

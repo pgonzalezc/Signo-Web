@@ -1,16 +1,18 @@
 Class {
-	#name : #SgMIdentificacion,
-	#superclass : #SgMBase,
+	#name : 'SgMIdentificacion',
+	#superclass : 'SgMBase',
 	#instVars : [
 		'apellido1',
 		'apellido2',
 		'nombre',
 		'nif'
 	],
-	#category : #'Signo-Web-Models'
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SgMIdentificacion >> = anObject [
 	"Answer whether the receiver and anObject represent the same object."
 
@@ -19,31 +21,31 @@ SgMIdentificacion >> = anObject [
 	^ nif = anObject nif
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMIdentificacion >> apellido1 [
 
 	^ apellido1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMIdentificacion >> apellido1: aString [
 
 	apellido1 := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMIdentificacion >> apellido2 [
 
 	^ apellido2
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMIdentificacion >> apellido2: aString [
 
 	apellido2 := aString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMIdentificacion >> denominacion [
 
 	^ self isEmpty
@@ -61,14 +63,14 @@ SgMIdentificacion >> denominacion [
 							   self nombre trim }) asUppercase ] ]
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SgMIdentificacion >> hash [
 	"Answer an integer value that is related to the identity of the receiver."
 
 	^ nif hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgMIdentificacion >> initialize [ 
 
 	super initialize.
@@ -78,37 +80,37 @@ SgMIdentificacion >> initialize [
 	apellido2 := ''
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgMIdentificacion >> isEmpty [
 
 	^ self apellido1 isEmpty & self apellido2 isEmpty & self nombre isEmpty 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMIdentificacion >> nif [
 
 	^ nif
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMIdentificacion >> nif: aString [
 
 	nif := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMIdentificacion >> nombre [
 
 	^ nombre
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMIdentificacion >> nombre: aString [
 
 	nombre := aString
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SgMIdentificacion >> printOn: aStream [
 	"Generate a string representation of the receiver based on its instance variables."
 
@@ -127,7 +129,7 @@ SgMIdentificacion >> printOn: aStream [
 		print: apellido1
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgMIdentificacion >> renderHtmlOn: html [
 
 	html blockquote: [  
@@ -138,13 +140,13 @@ SgMIdentificacion >> renderHtmlOn: html [
 		html definitionData: self denominacion ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgMIdentificacion >> renderOn: aRenderer [
 
 	aRenderer text: self denominacion
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgMIdentificacion >> validate [
 
 	| errores |

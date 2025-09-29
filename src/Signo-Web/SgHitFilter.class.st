@@ -1,10 +1,12 @@
 Class {
-	#name : #SgHitFilter,
-	#superclass : #WARequestFilter,
-	#category : #'Signo-Web-Views'
+	#name : 'SgHitFilter',
+	#superclass : 'WARequestFilter',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #processing }
+{ #category : 'processing' }
 SgHitFilter >> handleFiltered: aRequestContext [
 
 	Transcript

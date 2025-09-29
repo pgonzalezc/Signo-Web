@@ -1,32 +1,34 @@
 Class {
-	#name : #SgError,
-	#superclass : #Object,
+	#name : 'SgError',
+	#superclass : 'Object',
 	#instVars : [
 		'message',
 		'widgetId'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgError class >> message: aString [
 
 	^ self new message: aString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgError class >> message: aString widgetId: aStringId [
 
 	^self new message: aString;widgetId: aStringId
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgError >> message: aString [
 
 	message := aString
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SgError >> printOn: aStream [
 	"Generate a string representation of the receiver based on its instance variables."
 
@@ -40,7 +42,7 @@ SgError >> printOn: aStream [
 		print: message
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgError >> renderOn: html [
 
 	html span
@@ -63,13 +65,13 @@ SgError >> renderOn: html [
 							'Ir' ] ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgError >> widgetId: anObject [
 
 	widgetId := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgError >> withText: anArray [
 
 	message := message format: anArray

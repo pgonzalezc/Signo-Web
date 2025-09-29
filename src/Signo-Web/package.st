@@ -1,1 +1,1 @@
-Package { #name : #'Signo-Web' }
+Package { #name : 'Signo-Web' }

@@ -1,6 +1,6 @@
 Class {
-	#name : #SgMPT02Modelo,
-	#superclass : #Object,
+	#name : 'SgMPT02Modelo',
+	#superclass : 'Object',
 	#instVars : [
 		'id',
 		'modelo',
@@ -16,10 +16,12 @@ Class {
 		'grabarSes',
 		'apControl'
 	],
-	#category : #'Signo-Web-Models'
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgMPT02Modelo class >> fromTuple: aTuple [
 
 	^ self new
@@ -38,31 +40,31 @@ SgMPT02Modelo class >> fromTuple: aTuple [
 			apControl: (aTuple at: 13)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> apControl [
 
 	^ apControl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> apControl: anObject [
 
 	apControl := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> aplicacion [
 
 	^ aplicacion
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> aplicacion: anObject [
 
 	aplicacion := anObject
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SgMPT02Modelo >> asArray [
 
 	^ {
@@ -81,133 +83,133 @@ SgMPT02Modelo >> asArray [
 		  self apControl }
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> ejercicio [
 
 	^ ejercicio
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> ejercicio: anObject [
 
 	ejercicio := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> finiciopres [
 
 	^ finiciopres
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> finiciopres: anObject [
 
 	finiciopres := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> grabarSes [
 
 	^ grabarSes
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> grabarSes: anObject [
 
 	grabarSes := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> id [
 
 	^ id
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> id: anObject [
 
 	id := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> idAp [
 
 	^ idAp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> idAp: anObject [
 
 	idAp := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> modelo [
 
 	^ modelo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> modelo: anObject [
 
 	modelo := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> procedimiento [
 
 	^ procedimiento
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> procedimiento: anObject [
 
 	procedimiento := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> tipo [
 
 	^ tipo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> tipo: anObject [
 
 	tipo := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> tramitec [
 
 	^ tramitec
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> tramitec: anObject [
 
 	tramitec := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> tramitep [
 
 	^ tramitep
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> tramitep: anObject [
 
 	tramitep := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> umbral [
 
 	^ umbral
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT02Modelo >> umbral: anObject [
 
 	umbral := anObject

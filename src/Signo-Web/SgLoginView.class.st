@@ -1,15 +1,17 @@
 Class {
-	#name : #SgLoginView,
-	#superclass : #WAComponent,
+	#name : 'SgLoginView',
+	#superclass : 'WAComponent',
 	#instVars : [
 		'email',
 		'password',
 		'errores'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgLoginView >> checkAuthen [
 	"Verificamos que los valores de la autenticación sea correctos"
 
@@ -21,7 +23,7 @@ SgLoginView >> checkAuthen [
 		cr
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgLoginView >> checkData [
 	"Verificamos que los parámetros recibidos email y password contiene valores que 
 	son los esperados por la aplicación"
@@ -31,7 +33,7 @@ SgLoginView >> checkData [
 		errores add: 'Contraseña debe informarse, es obligatoria' ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgLoginView >> doLogin [
 
 	self checkData.
@@ -40,32 +42,32 @@ SgLoginView >> doLogin [
 	self answer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgLoginView >> email [
 
 	^ email
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgLoginView >> gotoEmailConfirmationView [
 
 	self call: (SgEmailConfirmationView new)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgLoginView >> initialize [ 
 
 	super initialize .
 	errores := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgLoginView >> password [
 
 	^ (SHA256 hashMessage: password) base64Encoded 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgLoginView >> renderAnchorForgetPasswordOn: html [
 
 	html div
@@ -75,13 +77,13 @@ SgLoginView >> renderAnchorForgetPasswordOn: html [
 				with: '¿Olvidó su contraseña?' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgLoginView >> renderButtonLoginOn: html [
 
 	html button class: 'button button-outline'; callback: [ self doLogin ]; value: 'Login'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgLoginView >> renderContentOn: html [
 
 	html div
@@ -98,7 +100,7 @@ SgLoginView >> renderContentOn: html [
 			self renderLoginFormOn: html ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgLoginView >> renderInputEmailOn: html [
 
 	html fieldSet: [
@@ -113,7 +115,7 @@ SgLoginView >> renderInputEmailOn: html [
 			callback: [ :value | email := value ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgLoginView >> renderInputPasswordOn: html [
 
 	html fieldSet: [
@@ -128,7 +130,7 @@ SgLoginView >> renderInputPasswordOn: html [
 			placeholder: 'introduzca su contraseña' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgLoginView >> renderLoginFormOn: html [
 
 	html form
@@ -142,7 +144,7 @@ SgLoginView >> renderLoginFormOn: html [
 				with: [ self renderButtonLoginOn: html ] ]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 SgLoginView >> updateRoot: aHtmlRoot [
 
 	super updateRoot: aHtmlRoot.

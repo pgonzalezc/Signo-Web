@@ -1,32 +1,34 @@
 Class {
-	#name : #SgTestIdentificacion,
-	#superclass : #SgBaseView,
+	#name : 'SgTestIdentificacion',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'children'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgTestIdentificacion class >> canBeRoot [ 
 
 	^true
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgTestIdentificacion class >> initialize [
 
 	<script>
 	WAAdmin register: self asApplicationAt: 'signo/test/identificacion'
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 SgTestIdentificacion >> children [ 
 
 	^ children
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgTestIdentificacion >> initialize [
 
 	super initialize.
@@ -44,7 +46,7 @@ SgTestIdentificacion >> initialize [
 				             (WAMessageDecoration new message: 'Devengo'))
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgTestIdentificacion >> processOkButton [
 
 	Transcript
@@ -58,7 +60,7 @@ SgTestIdentificacion >> processOkButton [
 				cr ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgTestIdentificacion >> renderButtonAreaOn: html [
 
 	html div
@@ -70,7 +72,7 @@ SgTestIdentificacion >> renderButtonAreaOn: html [
 			html horizontalRule ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgTestIdentificacion >> renderContentOn: html [
 
 	html heading level2 with: 'Test identificacion'.

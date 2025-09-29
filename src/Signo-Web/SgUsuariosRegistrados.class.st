@@ -1,10 +1,12 @@
 Class {
-	#name : #SgUsuariosRegistrados,
-	#superclass : #Object,
-	#category : #'Signo-Web-DBs'
+	#name : 'SgUsuariosRegistrados',
+	#superclass : 'Object',
+	#category : 'Signo-Web-DBs',
+	#package : 'Signo-Web',
+	#tag : 'DBs'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgUsuariosRegistrados class >> insertModel: anUserModel [
 
 	(P3Client new url: SgTest01 connInfo) in: [ :client |
@@ -21,7 +23,7 @@ SgUsuariosRegistrados class >> insertModel: anUserModel [
 			client close ] ]
 ]
 
-{ #category : #selection }
+{ #category : 'selection' }
 SgUsuariosRegistrados class >> selectAll [
 	"Devolvemos todos los usuarios registrados en el sistema"
 
@@ -33,7 +35,7 @@ SgUsuariosRegistrados class >> selectAll [
 			  ensure: [ client close ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgUsuariosRegistrados class >> transformToModel: aTuple [
 
 	"Transforma la tupla al modelo SgUsuarioRegistrado"

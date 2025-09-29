@@ -1,15 +1,17 @@
 Class {
-	#name : #SgTest01Model,
-	#superclass : #Object,
+	#name : 'SgTest01Model',
+	#superclass : 'Object',
 	#instVars : [
 		'id',
 		'clave',
 		'valor'
 	],
-	#category : #'Signo-Web-DBs'
+	#category : 'Signo-Web-DBs',
+	#package : 'Signo-Web',
+	#tag : 'DBs'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgTest01Model class >> fromTuple: aTuple [
 
 	"La tupla contiene 3 campos siendo estos id, clave y valor"
@@ -19,37 +21,37 @@ SgTest01Model class >> fromTuple: aTuple [
 		setValor: (aTuple at: 3)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgTest01Model >> clave [
 
 	^ clave
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgTest01Model >> id [
 
 	^ id
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgTest01Model >> setClave: aString [
 
 	clave := aString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgTest01Model >> setId: anInteger [
 
 	id := anInteger
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgTest01Model >> setValor: aString [
 
 	valor := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgTest01Model >> valor [
 
 	^ valor

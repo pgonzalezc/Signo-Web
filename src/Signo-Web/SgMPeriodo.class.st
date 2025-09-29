@@ -1,21 +1,23 @@
 Class {
-	#name : #SgMPeriodo,
-	#superclass : #Object,
+	#name : 'SgMPeriodo',
+	#superclass : 'Object',
 	#classVars : [
 		'Anual',
 		'Mensuales',
 		'Trimestrales'
 	],
-	#category : #'Signo-Web-Models'
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMPeriodo class >> anual [
 
 	^ Anual ifNil: [Anual := OrderedCollection with: '0A' -> 'Anual']
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMPeriodo class >> mensuales [
 
 	^ Mensuales ifNil: [ Mensuales := OrderedCollection new
@@ -34,7 +36,7 @@ SgMPeriodo class >> mensuales [
 		  yourself]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMPeriodo class >> trimestrales [
 
 	^ Trimestrales ifNil: [
@@ -45,19 +47,19 @@ SgMPeriodo class >> trimestrales [
 			                  with: '4T' -> 'Cuarto Trimestre' ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMPeriodo >> anual [ 
 	
 	^ self class anual
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMPeriodo >> mensuales [ 
 
 	^ self class mensuales
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMPeriodo >> trimestrales [
 	^ self class trimestrales
 ]

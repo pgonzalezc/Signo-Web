@@ -1,15 +1,17 @@
 Class {
-	#name : #SgModelHeaderView,
-	#superclass : #WAComponent,
+	#name : 'SgModelHeaderView',
+	#superclass : 'WAComponent',
 	#instVars : [
 		'title',
 		'model',
 		'subtitle'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgModelHeaderView >> renderContentOn: html [
 
 	html div
@@ -71,19 +73,19 @@ SgModelHeaderView >> renderContentOn: html [
 						with: model ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgModelHeaderView >> setModel: aString [
 
 	model := aString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgModelHeaderView >> setSubtitle: aCollectionOfStrings [
 
 	subtitle := aCollectionOfStrings 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgModelHeaderView >> setTitle: aString [
 
 	title := aString

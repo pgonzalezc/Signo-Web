@@ -1,6 +1,6 @@
 Class {
-	#name : #SgBaseView,
-	#superclass : #WAComponent,
+	#name : 'SgBaseView',
+	#superclass : 'WAComponent',
 	#instVars : [
 		'errores',
 		'avisos',
@@ -10,10 +10,12 @@ Class {
 	#classVars : [
 		'ConversorImp'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgBaseView class >> initialize [
 
 	TinyLogger default
@@ -22,7 +24,7 @@ SgBaseView class >> initialize [
 	ConversorImp := GRSignPrinter new , (GRNumberPrinter new precision: 2)
 ]
 
-{ #category : #settings }
+{ #category : 'settings' }
 SgBaseView class >> settingsOn: aBuilder [
 
 	<systemsettings>
@@ -31,26 +33,26 @@ SgBaseView class >> settingsOn: aBuilder [
 		description: 'Configuración de los modelos tributarios'
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SgBaseView >> addError: aSgError [
 
 	errores add: aSgError
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> bulmaCssLibs [
 
 	^ #()
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> bulmaJsLibs [
 
 	^ #()
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> cssLibs [
 
 	cssProvider = #milligram ifTrue: [ ^ self milligramCssLibs ].
@@ -60,19 +62,19 @@ SgBaseView >> cssLibs [
 	^ self milligramCssLibs 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgBaseView >> focusId [
 
 	^ focusId ifNil: [ focusId := '' ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgBaseView >> hayErrores [ 
 
 	^ errores isNotEmpty 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgBaseView >> initialize [ 
 
 	super initialize.
@@ -80,7 +82,7 @@ SgBaseView >> initialize [
 	avisos := OrderedCollection new.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> jsLibs [
 
 	cssProvider = #milligram ifTrue: [ ^ self milligramJsLibs ].
@@ -90,19 +92,19 @@ SgBaseView >> jsLibs [
 	^ self milligramJsLibs 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> materializeCssLibs [
 
 	^ #( '/static-files/css/materialize/materialize.min.css' )
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> materializeJsLibs [
 
 	^ #('/static-files/js/jquery-3.7.1/jquery.min.js')
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> milligramCssLibs [
 
 	^ #( '/static-files/css/fonts/roboto.css'
@@ -111,38 +113,38 @@ SgBaseView >> milligramCssLibs [
 			'/static-files/css/m113/custom.css')
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> milligramJsLibs [
 
 	^ #('/static-files/js/jquery-3.7.1/jquery.min.js')
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgBaseView >> model [
 
 	self subclassResponsibility 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> semanticCssLibs [
 
 	^ #( '/static-files/css/semantic/semantic.min.css' )
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseView >> semanticJsLibs [
 
 	^ #('/static-files/css/semantic/semantic.js' 
 		 '/static-files/js/jquery/jquery.min.css' )
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgBaseView >> setFocusId: aHtmlObjectId [
 
 	focusId := aHtmlObjectId
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgBaseView >> setHtmxOn: aHtmlRoot [
 
 	aHtmlRoot javascript
@@ -151,7 +153,7 @@ SgBaseView >> setHtmxOn: aHtmlRoot [
 		 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgBaseView >> setTurboOn: aHtmlRoot [
 
 	aHtmlRoot javascript
@@ -160,7 +162,7 @@ SgBaseView >> setTurboOn: aHtmlRoot [
 			'import hotwiredTurbo from "https://cdn.skypack.dev/@hotwired/turbo@7.3.0";'
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 SgBaseView >> updateRoot: aHtmlRoot [
 
 	super updateRoot: aHtmlRoot.

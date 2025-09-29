@@ -1,47 +1,49 @@
 Class {
-	#name : #SgMDevengo,
-	#superclass : #SgMBase,
+	#name : 'SgMDevengo',
+	#superclass : 'SgMBase',
 	#instVars : [
 		'ejercicio',
 		'periodo',
 		'fechaInicioPeriodoImpositivo',
 		'fechaFinPeriodoImpositivo'
 	],
-	#category : #'Signo-Web-Models'
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMDevengo >> ejercicio [
 
 	^ ejercicio
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMDevengo >> fechaFinPeriodoImpositivo [
 
 	^ fechaFinPeriodoImpositivo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMDevengo >> fechaInicioPeriodoImpositivo [
 
 	^ fechaInicioPeriodoImpositivo
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgMDevengo >> initialize [ 
 
 	super initialize.
 	ejercicio := DateAndTime now year
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMDevengo >> periodo [
 
 	^ periodo
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SgMDevengo >> printOn: aStream [
 	"Generate a string representation of the receiver based on its instance variables."
 
@@ -61,32 +63,32 @@ SgMDevengo >> printOn: aStream [
 	
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgMDevengo >> setEjercicio: aNumber [
 
 	ejercicio := aNumber.
 	
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgMDevengo >> setFechaFinPeriodoImpositivo: aDateAndTime [
 
 	fechaFinPeriodoImpositivo := aDateAndTime 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgMDevengo >> setFechaInicioPeriodoImpositivo: aDateAndTime [
 
 	fechaInicioPeriodoImpositivo := aDateAndTime 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgMDevengo >> setPeriodo: aPeriodo [
 
 	periodo := aPeriodo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMDevengo >> validate [
 
 	^ OrderedCollection new

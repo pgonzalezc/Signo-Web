@@ -1,10 +1,12 @@
 Class {
-	#name : #SgMDeclComplementaria,
-	#superclass : #SgMBase,
-	#category : #'Signo-Web-Models'
+	#name : 'SgMDeclComplementaria',
+	#superclass : 'SgMBase',
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMDeclComplementaria >> validate [ 
 
 	^ OrderedCollection new

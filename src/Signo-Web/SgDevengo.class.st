@@ -1,6 +1,6 @@
 Class {
-	#name : #SgDevengo,
-	#superclass : #SgBaseView,
+	#name : 'SgDevengo',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'periodosValidos',
 		'modelo'
@@ -8,38 +8,40 @@ Class {
 	#classVars : [
 		'Settings'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDevengo class >> admiteFechaFinPI [
 
 	^ Settings isNil or: [
 		  Settings at: #fechaFinPI ifAbsent: [ false ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgDevengo class >> admiteFechaFinPI: aBoolean [
 
 	Settings ifNil: [ Settings := Dictionary new ].
 	Settings at: #fechaFinPI put: aBoolean
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDevengo class >> admiteFechaInicioPI [
 
 	^ Settings isNil or: [
 		  Settings at: #fechaInicioPI ifAbsent: [ false ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgDevengo class >> admiteFechaInicioPI: aBoolean [
 
 	Settings ifNil: [ Settings := Dictionary new ].
 	Settings at: #fechaInicioPI put: aBoolean
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDevengo class >> devengoSettingsOn: aBuilder [
 
 	<systemsettings>
@@ -61,26 +63,26 @@ SgDevengo class >> devengoSettingsOn: aBuilder [
 		parent: #greetings
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgDevengo >> initialize [ 
 
 	super initialize.
 	modelo := SgMDevengo new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgDevengo >> model [ 
 
 	^ modelo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgDevengo >> periodosValidos: aListOfPeriodos [
 
 	periodosValidos := aListOfPeriodos 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SgDevengo >> printOn: aStream [
 
 
@@ -104,7 +106,7 @@ SgDevengo >> printOn: aStream [
 		cr"
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDevengo >> renderContentOn: html [
 
 	html fieldSet: [
@@ -127,7 +129,7 @@ SgDevengo >> renderContentOn: html [
 							with: [ self renderFieldFechaFinPIOn: html ] ] ] ] 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDevengo >> renderFieldEjercicioOn: html [
 
 	html label
@@ -140,7 +142,7 @@ SgDevengo >> renderFieldEjercicioOn: html [
 							callback: [ :value | self model setEjercicio: value ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDevengo >> renderFieldFechaFinPIOn: html [
 
 	"render el campo fecha de fin de Periodo Impositivo (PI)"
@@ -153,7 +155,7 @@ SgDevengo >> renderFieldFechaFinPIOn: html [
 		callback: [ :value | self model setFechaFinPeriodoImpositivo: value asDateAndTime ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDevengo >> renderFieldFechaInicioPIOn: html [
 
 	"render del campo fecha de inicio del Periodo Impositivo (PI)"
@@ -166,7 +168,7 @@ SgDevengo >> renderFieldFechaInicioPIOn: html [
 		callback: [ :value | self model setFechaInicioPeriodoImpositivo: value ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDevengo >> renderFieldPeriodoOn: html [
 
 	html label
@@ -179,7 +181,7 @@ SgDevengo >> renderFieldPeriodoOn: html [
 		labels: [ :each | each key , ' - ' , each value ]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 SgDevengo >> updateRoot: aHtmlRoot [
 
 	super updateRoot: aHtmlRoot.

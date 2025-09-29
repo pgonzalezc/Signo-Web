@@ -1,6 +1,6 @@
 Class {
-	#name : #SgMPT04Campo,
-	#superclass : #Object,
+	#name : 'SgMPT04Campo',
+	#superclass : 'Object',
 	#instVars : [
 		'id',
 		'modelo',
@@ -12,10 +12,12 @@ Class {
 		'longitud',
 		'tipo'
 	],
-	#category : #'Signo-Web-Models'
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgMPT04Campo class >> from: aTuple [
 
 	^ self new
@@ -30,121 +32,121 @@ SgMPT04Campo class >> from: aTuple [
 		  tipo: (aTuple at: 9) trim
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SgMPT04Campo >> asArray [
 
 	^ { id . modelo . ejercicio . idAp . nombre . nroreg . posini . longitud . tipo }
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> ejercicio [
 
 	^ ejercicio
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> ejercicio: anObject [
 
 	ejercicio := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> id [
 
 	^ id
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> id: anObject [
 
 	id := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> idAp [
 
 	^ idAp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> idAp: anObject [
 
 	idAp := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> key [
 
 	^ modelo asString , ejercicio asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> longitud [
 
 	^ longitud
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> longitud: anObject [
 
 	longitud := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> modelo [
 
 	^ modelo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> modelo: anObject [
 
 	modelo := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> nombre [
 
 	^ nombre
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> nombre: anObject [
 
 	nombre := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> nroreg [
 
 	^ nroreg
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> nroreg: anObject [
 
 	nroreg := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> posini [
 
 	^ posini
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> posini: anObject [
 
 	posini := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> tipo [
 
 	^ tipo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMPT04Campo >> tipo: anObject [
 
 	tipo := anObject

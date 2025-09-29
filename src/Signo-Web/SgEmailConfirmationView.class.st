@@ -1,16 +1,18 @@
 Class {
-	#name : #SgEmailConfirmationView,
-	#superclass : #WAComponent,
-	#category : #'Signo-Web-Views'
+	#name : 'SgEmailConfirmationView',
+	#superclass : 'WAComponent',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgEmailConfirmationView >> doReturn [
 
 	self answer
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgEmailConfirmationView >> renderContentOn: html [
 
 	html div
@@ -26,7 +28,7 @@ SgEmailConfirmationView >> renderContentOn: html [
 				]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 SgEmailConfirmationView >> updateRoot: aHtmlRoot [
 
 	super updateRoot: aHtmlRoot.

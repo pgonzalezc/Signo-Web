@@ -1,19 +1,21 @@
 Class {
-	#name : #Sg117RootView,
-	#superclass : #SgBaseView,
+	#name : 'Sg117RootView',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'children'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Sg117RootView class >> initialize [
 
 	WAAdmin register: self asApplicationAt: 'signo/m117'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg117RootView >> initialize [
 
 	super initialize.
@@ -27,7 +29,7 @@ Sg117RootView >> initialize [
 				             (WAMessageDecoration new message: 'Devengo (2)'))
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg117RootView >> renderContentOn: html [
 
 	html form: [

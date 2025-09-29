@@ -1,19 +1,21 @@
 Class {
-	#name : #SgHelloWorld,
-	#superclass : #WAComponent,
+	#name : 'SgHelloWorld',
+	#superclass : 'WAComponent',
 	#classVars : [
 		'Usuario'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgHelloWorld class >> canBeRoot [ 
 
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHelloWorld class >> greetingSettingsOn: aBuilder [
 
 	<systemsettings>
@@ -30,7 +32,7 @@ SgHelloWorld class >> greetingSettingsOn: aBuilder [
 				default: '' ]
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgHelloWorld class >> initialize [
 
 	| app |
@@ -44,19 +46,19 @@ SgHelloWorld class >> initialize [
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHelloWorld class >> usuario [
 
 	^ Usuario
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHelloWorld class >> usuario: aString [
 
 	Usuario := aString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHelloWorld >> getIdenFromHeaders: headers [
 
 	| x |
@@ -66,14 +68,14 @@ SgHelloWorld >> getIdenFromHeaders: headers [
 		  'CN'
 ]
 
-{ #category : #'private - protocol' }
+{ #category : 'private - protocol' }
 SgHelloWorld >> login [ 
 
 	| contexto |
 	contexto := self call: (SgLoginView new)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHelloWorld >> registrar [
 
 	| user |
@@ -81,7 +83,7 @@ SgHelloWorld >> registrar [
 	Transcript show: ('Registrado usuario {1}' format: { user })
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgHelloWorld >> renderContentOn: html [
 
 	| presentador |
@@ -121,7 +123,7 @@ SgHelloWorld >> renderContentOn: html [
 		with: 'Usuarios registrados'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHelloWorld >> seleccionar [
 
 	| answer items component |
@@ -135,7 +137,7 @@ SgHelloWorld >> seleccionar [
 	Transcript show: ('seleccion realizada: [{1}]' format: { answer })
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHelloWorld >> showTable [
 
 	| component answer |
@@ -161,7 +163,7 @@ SgHelloWorld >> showTable [
 		cr
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 SgHelloWorld >> updateRoot: aHtmlRoot [
 
 	super updateRoot: aHtmlRoot.
@@ -170,7 +172,7 @@ SgHelloWorld >> updateRoot: aHtmlRoot [
 		'/static-files/css/milligram/milligram.min.css'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHelloWorld >> usuarios [
 
 	| component |
@@ -204,7 +206,7 @@ SgHelloWorld >> usuarios [
 	self call: component
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHelloWorld >> yesNoDialog [
 
 	| component |

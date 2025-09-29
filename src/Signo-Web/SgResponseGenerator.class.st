@@ -1,20 +1,22 @@
 Class {
-	#name : #SgResponseGenerator,
-	#superclass : #WAResponseGenerator,
+	#name : 'SgResponseGenerator',
+	#superclass : 'WAResponseGenerator',
 	#classVars : [
 		'HttpErrorTemplate'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgResponseGenerator class >> resetTemplates [
 
 	<script>
 	HttpErrorTemplate := nil
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgResponseGenerator >> genericResponseForStatus: aStatusObject [
 
 	self ifResetPossible: [
@@ -27,13 +29,13 @@ SgResponseGenerator >> genericResponseForStatus: aStatusObject [
 				 (#service -> self request url) } asDictionary)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgResponseGenerator >> getInfoTemplate [ 
 
 	^ (SgMustacheTemplate newForFile: 'getInfo.mustache.html') template
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgResponseGenerator >> htmlPageForGetInfo: fields [
 	"Devuelve una página html con la informacion de la query String.
 	 @param fields <Dictionary> el valor devuelto por WARequest queryFields."
@@ -49,26 +51,26 @@ SgResponseGenerator >> htmlPageForGetInfo: fields [
 						  (self transformDictionary: fields) }))
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgResponseGenerator >> httpErrorTemplate [
 
 	^ (SgMustacheTemplate newForFile:
 			                        'httpError.mustache.html') template 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgResponseGenerator >> methodNotAllowed [
 
 	self genericResponseForStatus: WAResponse statusMethodNotAllowed 
 ]
 
-{ #category : #generation }
+{ #category : 'generation' }
 SgResponseGenerator >> notImplemented [
 
 	self genericResponseForStatus: WAResponse statusNotImplemented 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgResponseGenerator >> transformDictionary: aDictionary [
 
 	aDictionary ifNil: [ ^ Dictionary new ].

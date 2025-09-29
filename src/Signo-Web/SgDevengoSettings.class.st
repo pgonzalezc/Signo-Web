@@ -1,9 +1,11 @@
 Class {
-	#name : #SgDevengoSettings,
-	#superclass : #SgBaseSettings,
+	#name : 'SgDevengoSettings',
+	#superclass : 'SgBaseSettings',
 	#classInstVars : [
 		'fechaInicioPeriodoImpositivo',
 		'fechaFinPeriodImpositivo'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Settings',
+	#package : 'Signo-Web',
+	#tag : 'Settings'
 }

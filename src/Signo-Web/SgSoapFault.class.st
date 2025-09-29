@@ -1,16 +1,18 @@
 Class {
-	#name : #SgSoapFault,
-	#superclass : #SgSoap,
+	#name : 'SgSoapFault',
+	#superclass : 'SgSoap',
 	#instVars : [
 		'code',
 		'string',
 		'actor',
 		'detail'
 	],
-	#category : #'Signo-Web-Utils'
+	#category : 'Signo-Web-Utils',
+	#package : 'Signo-Web',
+	#tag : 'Utils'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgSoapFault class >> code: aCode string: aString [
 
 	^ (self basicNew)
@@ -18,7 +20,7 @@ SgSoapFault class >> code: aCode string: aString [
 		string: aString
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SgSoapFault >> asString [
 
 	| writer |
@@ -31,13 +33,13 @@ SgSoapFault >> asString [
 	^ writer asString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgSoapFault >> code: aCode [
 
 	code := aCode
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgSoapFault >> string: aString [
 
 	string := aString

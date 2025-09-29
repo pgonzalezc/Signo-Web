@@ -1,13 +1,15 @@
 Class {
-	#name : #SgBaseSettings,
-	#superclass : #Object,
+	#name : 'SgBaseSettings',
+	#superclass : 'Object',
 	#classVars : [
 		'Settings'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Settings',
+	#package : 'Signo-Web',
+	#tag : 'Settings'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgBaseSettings class >> baseSettingsOn: aBuilder [	
 	<systemsettings>
 	(aBuilder group: #modelos)

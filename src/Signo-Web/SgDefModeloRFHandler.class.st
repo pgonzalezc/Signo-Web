@@ -1,17 +1,19 @@
 Class {
-	#name : #SgDefModeloRFHandler,
-	#superclass : #WARestfulHandler,
-	#category : #'Signo-Web-Views'
+	#name : 'SgDefModeloRFHandler',
+	#superclass : 'WARestfulHandler',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgDefModeloRFHandler class >> initialize [
 
 	<script>
 	WAAdmin register: self at: '/signo/def-modelos'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDefModeloRFHandler >> camposRespuesta: unModelo ejercicio: unEjercicio [
 
 	<get>
@@ -25,7 +27,7 @@ SgDefModeloRFHandler >> camposRespuesta: unModelo ejercicio: unEjercicio [
 	^ self renderPaginaCampos: campos
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDefModeloRFHandler >> ejercicios [
 	"Como se trata de un servicio raíz el documento html es completo"
 
@@ -53,7 +55,7 @@ SgDefModeloRFHandler >> ejercicios [
 			html div id: 'modelos' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgDefModeloRFHandler >> index [
 
 	<get>
@@ -63,7 +65,7 @@ SgDefModeloRFHandler >> index [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDefModeloRFHandler >> modelosDelEjercicio: unEjercicio [
 
 	<get>
@@ -77,7 +79,7 @@ SgDefModeloRFHandler >> modelosDelEjercicio: unEjercicio [
 			  self renderTablaModelos: modelos On: html ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDefModeloRFHandler >> renderCabecerasCamposOn: html [
 
 	html tableRow: [
@@ -92,7 +94,7 @@ SgDefModeloRFHandler >> renderCabecerasCamposOn: html [
 		html tableHeading: 'Tipo' ]
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 SgDefModeloRFHandler >> renderCabecerasModeloOn: html [ 
 html tableRow: [
 					  html tableHeading: 'Id.'.
@@ -110,7 +112,7 @@ html tableRow: [
 					  html tableHeading: '¿Ap. Control?' ].
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDefModeloRFHandler >> renderHtmlHeadTitle: aTitle on: aRoot [
 
 	aRoot beHtml5.
@@ -124,7 +126,7 @@ SgDefModeloRFHandler >> renderHtmlHeadTitle: aTitle on: aRoot [
 	aRoot javascript url: '/static-files/js/htmx/htmx.min.js'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDefModeloRFHandler >> renderIndex [
 
 	<get>
@@ -133,7 +135,7 @@ SgDefModeloRFHandler >> renderIndex [
 		response redirectTo: '/static-files/testHtmx.html' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDefModeloRFHandler >> renderPaginaCampos: campos [
 
 	^ WAHtmlCanvas builder
@@ -151,7 +153,7 @@ SgDefModeloRFHandler >> renderPaginaCampos: campos [
 				  self renderTablaCampos: campos on: html ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDefModeloRFHandler >> renderTablaCampos: campos on: html [
 
 	campos do: [ :tupla |
@@ -159,7 +161,7 @@ SgDefModeloRFHandler >> renderTablaCampos: campos on: html [
 			tupla asArray do: [ :column | html tableData: column ] ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDefModeloRFHandler >> renderTablaModelos: listaModelos On: html [
 
 	listaModelos do: [ :tupla |
@@ -176,7 +178,7 @@ SgDefModeloRFHandler >> renderTablaModelos: listaModelos On: html [
 								with: column ] ] ] ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDefModeloRFHandler >> renderTablaModelos: listModelos on: html [
 
 	 html table with: [
@@ -184,14 +186,14 @@ SgDefModeloRFHandler >> renderTablaModelos: listModelos on: html [
 			  self renderTablaModelos: listModelos On: html ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDefModeloRFHandler >> renderTableFor: listaModelos on: builder [
 
 	builder render: [ :html | self renderCabecerasModeloOn: html.
 		self renderTablaModelos: listaModelos On: html  ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDefModeloRFHandler >> urbanas [
 
 	<get>

@@ -6,41 +6,51 @@ Componente que gestiona la recogida de los datos de la identificación de un usu
 
 "
 Class {
-	#name : #SgIdentificacion,
-	#superclass : #SgBaseView,
+	#name : 'SgIdentificacion',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'identificacion',
-		'settings'
+		'settings',
+		'embeded'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgIdentificacion >> answerIdentificacion [
 
 	self answer: self identificacion
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgIdentificacion >> apellidosSeparados [ 
 
 	^ settings ifNil: [ false ] ifNotNil: [ settings apellidosSeparados ] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
+SgIdentificacion >> embeded [
+
+	^ embeded ifNil: [ embeded := OrderedCollection new ]
+]
+
+{ #category : 'accessing' }
 SgIdentificacion >> identificacion [
 
 	identificacion ifNil: [ identificacion := SgMIdentificacion new ].
 	^ identificacion
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgIdentificacion >> model [
 
+	"** Devuelve la identificación recogida con este componenete"
 	^ self identificacion
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgIdentificacion >> renderContentOn: html [
 
 	html fieldSet: [
@@ -58,10 +68,13 @@ SgIdentificacion >> renderContentOn: html [
 			ifFalse: [ self renderFieldApellidosOn: html ]
 			ifTrue: [
 				self renderFieldApellido1On: html.
-				self renderFieldApellido2On: html ] ]
+				self renderFieldApellido2On: html ] ].
+		settings informacionContacto ifTrue: [ 
+			html render: (self embeded add: (SgInfoContactoView new addDecoration: (WAMessageDecoration new message: 'Información de contacto')))
+			 ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgIdentificacion >> renderField: aName withLength: aNumber On: html [
 
 	| iden |
@@ -78,7 +91,7 @@ SgIdentificacion >> renderField: aName withLength: aNumber On: html [
 			callback: [ :value | identificacion perform: aName with: value ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgIdentificacion >> renderFieldApellido1On: html [
 
 		html label
@@ -92,7 +105,7 @@ SgIdentificacion >> renderFieldApellido1On: html [
 			callback: [ :value | identificacion apellido1: value ] 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgIdentificacion >> renderFieldApellido2On: html [
 
 		html label
@@ -106,7 +119,7 @@ SgIdentificacion >> renderFieldApellido2On: html [
 			callback: [ :value | identificacion apellido2: value ] 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgIdentificacion >> renderFieldApellidosOn: html [
 
 	html label
@@ -122,7 +135,7 @@ SgIdentificacion >> renderFieldApellidosOn: html [
 			identificacion apellido2: '' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgIdentificacion >> renderFieldNifOn: html [
 
 	html label
@@ -137,7 +150,7 @@ SgIdentificacion >> renderFieldNifOn: html [
 		callback: [ :value | identificacion nif: value ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgIdentificacion >> renderFieldNombreOn: html [
 
 		html label
@@ -151,7 +164,7 @@ SgIdentificacion >> renderFieldNombreOn: html [
 			callback: [ :value | identificacion nombre: value ] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgIdentificacion >> settings: aSettingObject [
 
 	"Establece el objeto con los settings a utilizar"

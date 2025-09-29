@@ -1,13 +1,15 @@
 Class {
-	#name : #SgErrores,
-	#superclass : #Object,
+	#name : 'SgErrores',
+	#superclass : 'Object',
 	#classVars : [
 		'Errores'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 SgErrores class >> atCode: anInteger [
 
 	| error |
@@ -16,7 +18,7 @@ SgErrores class >> atCode: anInteger [
 	^ error copy
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 SgErrores class >> atCode: anInteger withText: anArray [
 
 	| err |
@@ -25,7 +27,7 @@ SgErrores class >> atCode: anInteger withText: anArray [
 	^ err copy withText: anArray
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 SgErrores class >> error100 [
 
 	^ self atCode: 100
@@ -34,19 +36,19 @@ SgErrores class >> error100 [
 	
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 SgErrores class >> error101 [
 
 	^ self atCode: 101
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 SgErrores class >> error102 [
 
 	^ self atCode: 102
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgErrores class >> initialize [
 
 	<script>

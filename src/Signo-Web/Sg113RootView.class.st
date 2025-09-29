@@ -1,37 +1,21 @@
 Class {
-	#name : #Sg113RootView,
-	#superclass : #SgBaseView,
+	#name : 'Sg113RootView',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'children'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'as yet unclassified' }
-Sg113RootView class >> identificaciobnSetingsOn: aBuilder [
-
-<systemsettings>
-	(aBuilder group: #m113)
-		label: 'Modelo 113';
-		description: 'Valores de configuración del modelo 113';
-		parent: #modelosTributarios;
-		noOrdering;
-	with: [ 	(aBuilder group: #m113Identificacion)
-				label: 'Identificación';
-				description:
-					'Sección para la configuración de la vista de Identificación' ].
-	Sg113IdentificacionSettings
-		settingsOn: aBuilder
-		at: #m113Identificacion
-]
-
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Sg113RootView class >> initialize [ 
 
 	WAAdmin register:  self asApplicationAt: 'signo/m113'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg113RootView >> doSubmit [
 
 	(children at: 1) model inspect.
@@ -39,7 +23,7 @@ Sg113RootView >> doSubmit [
 	
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg113RootView >> initialize [
 
 	super initialize.
@@ -47,7 +31,7 @@ Sg113RootView >> initialize [
 	children := OrderedCollection with: Sg113Bloque3View new with: Sg113Bloque4View new
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg113RootView >> renderContentOn: html [
 
 	html form: [
@@ -66,7 +50,7 @@ Sg113RootView >> renderContentOn: html [
 					value: 'Enviar' ] ]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 Sg113RootView >> updateRoot: aHtmlRoot [
 
 	super updateRoot: aHtmlRoot.

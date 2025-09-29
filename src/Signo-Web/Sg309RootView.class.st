@@ -1,59 +1,42 @@
 Class {
-	#name : #Sg309RootView,
-	#superclass : #SgBaseView,
+	#name : 'Sg309RootView',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'modelo',
 		'embedded'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 Sg309RootView class >> canBeRoot [ 
 
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
-Sg309RootView class >> identificacionSettingsOn: aBuilder [
-
-	<systemsettings>
-	(aBuilder group: #m309)
-		label: 'Modelo 309';
-		description: 'Valores de configuración del modelo 309';
-		parent: #modelosTributarios;
-		noOrdering;
-	with: [ 	(aBuilder group: #m309Identificacion)
-				label: 'Identificación';
-				description:
-					'Sección para la configuración de la vista de Identificación';
-				parent: #m309 ].
-	Sg309IdentificacionSettings
-		settingsOn: aBuilder
-		at: #m309Identificacion
-]
-
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Sg309RootView class >> initialize [ 
 	
 	<script>
 	WAAdmin register:  self asApplicationAt: 'signo/m309' 
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 Sg309RootView >> children [
 
 	^ embedded
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg309RootView >> doEnviar [
 
 	TinyLogger record: 'Modelo 309 - Pulsado el botón enviar'.
 	embedded do: [ :each | Transcript show: each value model; cr ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg309RootView >> initialize [
 
 	super initialize.
@@ -71,7 +54,7 @@ Sg309RootView >> initialize [
 				             yourself)
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg309RootView >> renderContentOn: html [
 
 	self renderHeaderOn: html.
@@ -84,7 +67,7 @@ Sg309RootView >> renderContentOn: html [
 		 ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Sg309RootView >> renderHeaderOn: html [
 
 	html heading level: 2; with: 'Modelo 309'.

@@ -1,52 +1,54 @@
 Class {
-	#name : #SgFincaUrbana,
-	#superclass : #Object,
+	#name : 'SgFincaUrbana',
+	#superclass : 'Object',
 	#instVars : [
 		'refCatastral',
 		'area',
 		'nombre',
 		'naturaleza'
 	],
-	#category : #'Signo-Web-Models'
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgFincaUrbana >> area [
 
 	^ area
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgFincaUrbana >> area: anObject [
 
 	area := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgFincaUrbana >> naturaleza [
 
 	^ naturaleza
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgFincaUrbana >> naturaleza: aString [
 
 	naturaleza := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgFincaUrbana >> nombre [
 
 	^ nombre
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgFincaUrbana >> nombre: anObject [
 
 	nombre := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SgFincaUrbana >> printOn: aStream [
 	"Generate a string representation of the receiver based on its instance variables."
 
@@ -65,19 +67,19 @@ SgFincaUrbana >> printOn: aStream [
 		print: nombre
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgFincaUrbana >> refCatastral [
 
 	^ refCatastral
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgFincaUrbana >> refCatastral: anObject [
 
 	refCatastral := anObject
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgFincaUrbana >> renderHtmlOn: html [
 
 	html tableRow: [ 

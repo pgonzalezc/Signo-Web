@@ -1,6 +1,6 @@
 Class {
-	#name : #SgMustacheTemplate,
-	#superclass : #Object,
+	#name : 'SgMustacheTemplate',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'expireTime',
@@ -9,36 +9,38 @@ Class {
 	#classVars : [
 		'Base'
 	],
-	#category : #'Signo-Web-Utils'
+	#category : 'Signo-Web-Utils',
+	#package : 'Signo-Web',
+	#tag : 'Utils'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMustacheTemplate class >> lifetime [
 
 	^ 5 minutes
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMustacheTemplate class >> newForFile: aFileName [ 
 
 	^ (self new)
 		name: aFileName
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgMustacheTemplate >> initialize [
 
 	super initialize.
 	Base := 'var/www/es.naupacto/static-files/templates/signo'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMustacheTemplate >> name: aFileName [
 
 	name := aFileName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMustacheTemplate >> template [
 
 	| fullName |

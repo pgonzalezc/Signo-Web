@@ -1,16 +1,18 @@
 Class {
-	#name : #SgSoapHandler,
-	#superclass : #WARequestHandler,
-	#category : #'Signo-Web-Views'
+	#name : 'SgSoapHandler',
+	#superclass : 'WARequestHandler',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgSoapHandler class >> initialize [
 
 	WAAdmin register: self at: '/soap/test'
 ]
 
-{ #category : #handling }
+{ #category : 'handling' }
 SgSoapHandler >> handleFiltered: aRequest [
 	
 	aRequest respond: [ :response | | tree respHeader respBody |
@@ -29,7 +31,7 @@ SgSoapHandler >> handleFiltered: aRequest [
 	]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgSoapHandler >> processBody: anXml [
 
 	| data  |
@@ -40,7 +42,7 @@ SgSoapHandler >> processBody: anXml [
 	^ data  
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgSoapHandler >> processHeader: anXml [
 
 	anXml hasChildren not ifTrue: [ ^ '' ]

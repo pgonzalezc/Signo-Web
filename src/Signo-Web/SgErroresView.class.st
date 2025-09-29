@@ -1,26 +1,28 @@
 Class {
-	#name : #SgErroresView,
-	#superclass : #WAComponent,
+	#name : 'SgErroresView',
+	#superclass : 'WAComponent',
 	#instVars : [
 		'errores'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgErroresView class >> with: aCollection [
 
 	^ (self new)
 		errores: aCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgErroresView >> errores: aCollection [
 
 	errores := aCollection
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgErroresView >> renderContentOn: html [
 
 	errores ifNotEmpty: [ 
@@ -34,7 +36,7 @@ SgErroresView >> renderContentOn: html [
 	ifEmpty: [ html div id: 'areaErrores' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgErroresView >> renderOn: html [
 
 	self renderContentOn: html

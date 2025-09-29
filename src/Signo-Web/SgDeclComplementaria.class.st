@@ -1,6 +1,6 @@
 Class {
-	#name : #SgDeclComplementaria,
-	#superclass : #SgBaseView,
+	#name : 'SgDeclComplementaria',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'complementaria',
 		'sustitutiva',
@@ -9,16 +9,18 @@ Class {
 	#classVars : [
 		'TiposAdmitidos'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDeclComplementaria class >> admiteSustitutiva [
 
 	^ TiposAdmitidos includes: #sustitutiva
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDeclComplementaria class >> admiteSustitutiva: aBoolean [
 
 	aBoolean ifTrue: [ TiposAdmitidos add: #sustitutiva ]
@@ -26,14 +28,14 @@ SgDeclComplementaria class >> admiteSustitutiva: aBoolean [
 	
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgDeclComplementaria class >> initialize [
 
 	<script>
 	TiposAdmitidos := Set with: #complementaria
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDeclComplementaria class >> sustitutivaSettingsOn: aBuilder [
 
 	<systemsettings>
@@ -45,19 +47,19 @@ SgDeclComplementaria class >> sustitutivaSettingsOn: aBuilder [
 		parent: #greetings
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDeclComplementaria >> decorated [
 
 	^ (self decoration class ~= self class)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgDeclComplementaria >> hasBanner [
 
 	^ self decoration class ~= self class and: [ self decoration class = WAMessageDecoration  ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgDeclComplementaria >> initialize [
 
 	super initialize.
@@ -65,13 +67,13 @@ SgDeclComplementaria >> initialize [
 	sustitutiva := false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgDeclComplementaria >> model [
 
 	^ SgMDeclComplementaria new
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDeclComplementaria >> renderBloqueComplementariaOn: html [
 
 	| texto etiqueta |
@@ -114,13 +116,13 @@ SgDeclComplementaria >> renderBloqueComplementariaOn: html [
 						value: nroJustAnterior ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgDeclComplementaria >> renderContentOn: html [
 
 	html fieldSet: [ self renderBloqueComplementariaOn: html ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgDeclComplementaria >> textoSegunConfiguracion [
 
 	"Devuelve el texto a mostrar en el componente de declaración complementaria si se ha configurado que el modelo

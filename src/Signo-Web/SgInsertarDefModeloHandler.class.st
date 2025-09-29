@@ -1,17 +1,19 @@
 Class {
-	#name : #SgInsertarDefModeloHandler,
-	#superclass : #WARequestHandler,
-	#category : #'Signo-Web-Views'
+	#name : 'SgInsertarDefModeloHandler',
+	#superclass : 'WARequestHandler',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgInsertarDefModeloHandler class >> initialize [
 
 	<script>
 	WAAdmin register: self at: 'signo/definicion/insertar'
 ]
 
-{ #category : #handling }
+{ #category : 'handling' }
 SgInsertarDefModeloHandler >> handleFiltered: aRequestContext [
 
 	| data |

@@ -1,10 +1,12 @@
 Class {
-	#name : #SgMBase,
-	#superclass : #Object,
-	#category : #'Signo-Web-Models'
+	#name : 'SgMBase',
+	#superclass : 'Object',
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMBase >> validate [
 
 	^ self subclassResponsibility 

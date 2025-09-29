@@ -1,19 +1,21 @@
 Class {
-	#name : #Euros,
-	#superclass : #Object,
+	#name : 'Euros',
+	#superclass : 'Object',
 	#instVars : [
 		'value'
 	],
-	#category : #'Signo-Web-Models'
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Euros class >> new: aNumber [
 
 	^ (self new) value: aNumber
 ]
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 Euros >> + aNumber [
 
 	| operand |
@@ -26,13 +28,13 @@ Euros >> + aNumber [
 	^ self class new: (self value + operand value)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Euros >> value [
 
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Euros >> value: aNumber [
 
 	value := aNumber asScaledDecimal: 2

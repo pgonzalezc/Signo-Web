@@ -1,13 +1,15 @@
 Class {
-	#name : #DatosUrbanas,
-	#superclass : #Object,
+	#name : 'DatosUrbanas',
+	#superclass : 'Object',
 	#classVars : [
 		'Urbanas'
 	],
-	#category : #'Signo-Web-Models'
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DatosUrbanas class >> initialize [
 
 	Urbanas := OrderedCollection
@@ -37,7 +39,7 @@ DatosUrbanas class >> initialize [
 				            naturaleza: '?')
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 DatosUrbanas class >> renderTableHeaderOn: html [
 
 	html tableRow: [ html tableHeading: 'ref. Catastral'.
@@ -46,20 +48,20 @@ DatosUrbanas class >> renderTableHeaderOn: html [
 		html tableHeading: 'Naturaleza' ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DatosUrbanas class >> reset [
 
 	<script>
 	Urbanas := nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DatosUrbanas class >> urbanas [ 
 
 	^ Urbanas
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DatosUrbanas >> initialize [
 	^ self class initialize
 ]

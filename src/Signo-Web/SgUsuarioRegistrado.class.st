@@ -1,6 +1,6 @@
 Class {
-	#name : #SgUsuarioRegistrado,
-	#superclass : #Object,
+	#name : 'SgUsuarioRegistrado',
+	#superclass : 'Object',
 	#instVars : [
 		'userId',
 		'email',
@@ -9,76 +9,78 @@ Class {
 		'password',
 		'fechaBaja'
 	],
-	#category : #'Signo-Web-DBs'
+	#category : 'Signo-Web-DBs',
+	#package : 'Signo-Web',
+	#tag : 'DBs'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgUsuarioRegistrado >> apellidos [
 
 	^ apellidos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgUsuarioRegistrado >> email [
 
 	^ email
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgUsuarioRegistrado >> fechaBaja [
 
 	^ fechaBaja
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgUsuarioRegistrado >> nombre [
 
 	^ nombre
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgUsuarioRegistrado >> password [
 
 	^ password
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgUsuarioRegistrado >> setApellidos: aString [
 
 	apellidos := aString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgUsuarioRegistrado >> setEmail: aEmailString [
 
 	email := WAEmailAddress new address: aEmailString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgUsuarioRegistrado >> setFechaBaja: aTimestamp [
 
 	fechaBaja := aTimestamp
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgUsuarioRegistrado >> setNombre: aString [
 
 	nombre := aString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgUsuarioRegistrado >> setPassword: aString [
 
 	password := aString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgUsuarioRegistrado >> setUserId: aInteger [
 
 	userId := aInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgUsuarioRegistrado >> userId [
 
 	^ userId

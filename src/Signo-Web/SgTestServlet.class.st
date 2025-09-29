@@ -1,17 +1,19 @@
 Class {
-	#name : #SgTestServlet,
-	#superclass : #WARequestHandler,
-	#category : #'Signo-Web-Views'
+	#name : 'SgTestServlet',
+	#superclass : 'WARequestHandler',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgTestServlet class >> initialize [
 
 	<script>
 	WAAdmin register: self at: 'signo/testServlet'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgTestServlet >> body [
 
 	^ WAHtmlCanvas builder
@@ -29,7 +31,7 @@ SgTestServlet >> body [
 			self renderHttpHeadersOn: html ]
 ]
 
-{ #category : #handling }
+{ #category : 'handling' }
 SgTestServlet >> handleFiltered: aRequestContext [
 
 	aRequestContext respond: [ :response |
@@ -39,7 +41,7 @@ SgTestServlet >> handleFiltered: aRequestContext [
 		response nextPutAll: self body ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgTestServlet >> renderHttpHeadersOn: html [
 
 	html div
@@ -55,7 +57,7 @@ SgTestServlet >> renderHttpHeadersOn: html [
 				html break ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgTestServlet >> renderHttpMethodOn: html [
 
 	html div class: 'container'; with: [ 
@@ -63,7 +65,7 @@ SgTestServlet >> renderHttpMethodOn: html [
 	html text: self requestContext request method  ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgTestServlet >> renderHttpParamsOn: html [
 
 	| params |

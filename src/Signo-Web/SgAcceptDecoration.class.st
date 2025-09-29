@@ -1,10 +1,12 @@
 Class {
-	#name : #SgAcceptDecoration,
-	#superclass : #WADecoration,
-	#category : #'Signo-Web-Views'
+	#name : 'SgAcceptDecoration',
+	#superclass : 'WADecoration',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #actions }
+{ #category : 'actions' }
 SgAcceptDecoration >> doAccept [
 
 	| decorated |
@@ -12,7 +14,7 @@ SgAcceptDecoration >> doAccept [
 	decorated answerIdentificacion
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgAcceptDecoration >> renderContentOn: html [
 
 	html form: [

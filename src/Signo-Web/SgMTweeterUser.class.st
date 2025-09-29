@@ -1,14 +1,16 @@
 Class {
-	#name : #SgMTweeterUser,
-	#superclass : #Object,
+	#name : 'SgMTweeterUser',
+	#superclass : 'Object',
 	#instVars : [
 		'user',
 		'following'
 	],
-	#category : #'Signo-Web-Models'
+	#category : 'Signo-Web-Models',
+	#package : 'Signo-Web',
+	#tag : 'Models'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgMTweeterUser class >> fromTuple: aTweeterUserTuple [
 
 	^ (self new)
@@ -16,7 +18,7 @@ SgMTweeterUser class >> fromTuple: aTweeterUserTuple [
 		setFollowing: aTweeterUserTuple second
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgMTweeterUser class >> user: aUserString following: aCollection [
 
 	^ self new
@@ -24,13 +26,13 @@ SgMTweeterUser class >> user: aUserString following: aCollection [
 		setFollowing: aCollection.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMTweeterUser >> following [
 
 	^ following
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SgMTweeterUser >> printOn: aStream [
 	"Generate a string representation of the receiver based on its instance variables."
 
@@ -43,19 +45,19 @@ SgMTweeterUser >> printOn: aStream [
 		print: following
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgMTweeterUser >> setFollowing: aCollection [
 
 	following := aCollection asOrderedCollection 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgMTweeterUser >> setUser: aString [
 
 	user := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgMTweeterUser >> user [
 
 	^ user

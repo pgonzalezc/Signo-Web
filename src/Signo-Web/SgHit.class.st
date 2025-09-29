@@ -1,10 +1,12 @@
 Class {
-	#name : #SgHit,
-	#superclass : #SgBaseView,
-	#category : #'Signo-Web-Views'
+	#name : 'SgHit',
+	#superclass : 'SgBaseView',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgHit class >> initialize [
 
 	<script>
@@ -13,7 +15,7 @@ SgHit class >> initialize [
 	"app addFilter: SgHitFilter new"
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgHit >> renderContentOn: html [
 
 	| start |
@@ -35,7 +37,7 @@ SgHit >> renderContentOn: html [
 				value: 'Test' ]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 SgHit >> updateRoot: aRootHtml [
 
 	super updateRoot: aRootHtml.

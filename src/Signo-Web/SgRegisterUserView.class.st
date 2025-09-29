@@ -1,6 +1,6 @@
 Class {
-	#name : #SgRegisterUserView,
-	#superclass : #SgBaseView,
+	#name : 'SgRegisterUserView',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'email',
 		'password',
@@ -8,16 +8,18 @@ Class {
 		'apellidos',
 		'nombre'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgRegisterUserView >> cancelar [
 
 	self answer: ''
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgRegisterUserView >> registrar [
 	"Procedemos a validar y registrar los datos introducidos por el usuario en el formulario"
 
@@ -41,7 +43,7 @@ SgRegisterUserView >> registrar [
 	self answer
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgRegisterUserView >> renderButtonCancelarOn: html [
 
 	html button
@@ -50,7 +52,7 @@ SgRegisterUserView >> renderButtonCancelarOn: html [
 		value: 'Cancelar'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgRegisterUserView >> renderButtonRegistrarOn: html [
 
 	html button
@@ -59,7 +61,7 @@ SgRegisterUserView >> renderButtonRegistrarOn: html [
 		value: 'Registrar'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgRegisterUserView >> renderContentOn: html [
 
 	html div
@@ -85,13 +87,13 @@ SgRegisterUserView >> renderContentOn: html [
 						self renderButtonCancelarOn: html ] ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgRegisterUserView >> renderErroresOn: html [
 
 	errores ifNotEmpty: [ html render: (SgErroresView with: errores) ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgRegisterUserView >> renderInputApellidosOn: html [
 
 	html fieldSet: [ 
@@ -99,7 +101,7 @@ SgRegisterUserView >> renderInputApellidosOn: html [
 		html textInput id: 'input-apellidos'; name: 'apellidos'; value: apellidos ;callback: [ :value | apellidos := value ]; placeholder: 'Introduzca sus apellidos' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgRegisterUserView >> renderInputEmailOn: html [
 
 	html fieldSet: [
@@ -114,7 +116,7 @@ SgRegisterUserView >> renderInputEmailOn: html [
 			placeholder: 'Introduzca su correo electrónico' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgRegisterUserView >> renderInputNombreOn: html [
 
 	html fieldSet: [
@@ -129,7 +131,7 @@ SgRegisterUserView >> renderInputNombreOn: html [
 			placeholder: 'Introduzca su nombre' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgRegisterUserView >> renderInputPasswordBisOn: html [
 
 	html fieldSet: [
@@ -144,7 +146,7 @@ SgRegisterUserView >> renderInputPasswordBisOn: html [
 			placeholder: 'reintroduzca su contraseña' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgRegisterUserView >> renderInputPasswordOn: html [
 
 	

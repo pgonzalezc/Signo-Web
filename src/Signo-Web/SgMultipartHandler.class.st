@@ -1,17 +1,19 @@
 Class {
-	#name : #SgMultipartHandler,
-	#superclass : #WARequestHandler,
-	#category : #'Signo-Web-Views'
+	#name : 'SgMultipartHandler',
+	#superclass : 'WARequestHandler',
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgMultipartHandler class >> initialize [
 
 	<script>
 	WAAdmin register: self at: 'signo/multipartHandler'
 ]
 
-{ #category : #handling }
+{ #category : 'handling' }
 SgMultipartHandler >> handleFiltered: aRequestContext [
 
 | file tabla lineas nroLineas|

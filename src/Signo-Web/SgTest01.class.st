@@ -1,16 +1,18 @@
 Class {
-	#name : #SgTest01,
-	#superclass : #Object,
-	#category : #'Signo-Web-DBs'
+	#name : 'SgTest01',
+	#superclass : 'Object',
+	#category : 'Signo-Web-DBs',
+	#package : 'Signo-Web',
+	#tag : 'DBs'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgTest01 class >> connInfo [
 
 	^ SgGestionTablas connInfo
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgTest01 class >> getKey: aString [
 
 	^ (P3Client new url: self connInfo) in: [ :client | |stmt|
@@ -19,7 +21,7 @@ SgTest01 class >> getKey: aString [
 		 ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgTest01 class >> putClave: aString withValue: anotherString [
 
 	(P3Client new url: self connInfo) in: [ :client |
@@ -32,7 +34,7 @@ SgTest01 class >> putClave: aString withValue: anotherString [
 				anotherString } ] ensure: [ client close ] ]
 ]
 
-{ #category : #selection }
+{ #category : 'selection' }
 SgTest01 class >> selectAll [
 
 	^ (P3Client new url: SgGestionTablas  connInfo) in: [ :client |

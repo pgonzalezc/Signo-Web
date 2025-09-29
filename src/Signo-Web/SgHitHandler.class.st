@@ -1,22 +1,24 @@
 Class {
-	#name : #SgHitHandler,
-	#superclass : #WARequestHandler,
+	#name : 'SgHitHandler',
+	#superclass : 'WARequestHandler',
 	#classVars : [
 		'Builder',
 		'ETemplate',
 		'MTemplate'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgHitHandler class >> initialize [ 
 
 	<script>
 	WAAdmin register:  self at: 'signo/hitServlet'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgHitHandler class >> reset [
 
 	<script>
@@ -25,7 +27,7 @@ SgHitHandler class >> reset [
 	Builder := nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHitHandler >> applyTemplate [
 
 	| start |
@@ -34,7 +36,7 @@ SgHitHandler >> applyTemplate [
 					   (DateAndTime now - start) humanReadablePrintString)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgHitHandler >> body [
 
 	| start |
@@ -47,7 +49,7 @@ SgHitHandler >> body [
 				   { (DateAndTime now - start) humanReadablePrintString }) ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHitHandler >> bodyTemplate [
 
 	^ MTemplate ifNil: [
@@ -65,7 +67,7 @@ SgHitHandler >> bodyTemplate [
 	</html>' asMustacheTemplate ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgHitHandler >> builder [
 
 	^ Builder ifNil: [
@@ -83,7 +85,7 @@ SgHitHandler >> builder [
 					             '/static-files/css/milligram/milligram.css' ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgHitHandler >> errorTemplate [
 
 	^ ETemplate ifNil: [
@@ -100,7 +102,7 @@ SgHitHandler >> errorTemplate [
 	</html>' asMustacheTemplate ]
 ]
 
-{ #category : #handling }
+{ #category : 'handling' }
 SgHitHandler >> handleFiltered: aRequestContext [
 
 	| servicio |

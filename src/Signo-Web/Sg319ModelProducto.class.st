@@ -1,16 +1,18 @@
 Class {
-	#name : #Sg319ModelProducto,
-	#superclass : #Object,
+	#name : 'Sg319ModelProducto',
+	#superclass : 'Object',
 	#instVars : [
 		'tipo',
 		'volumen',
 		'precio',
 		'mappings'
 	],
-	#category : #'Signo-Web-Models-m319'
+	#category : 'Signo-Web-Models-m319',
+	#package : 'Signo-Web',
+	#tag : 'Models-m319'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319ModelProducto class >> tipo: aString volumen: aNumber precioLitro: anotherNumber [
 
 	^ (self new)
@@ -19,7 +21,7 @@ Sg319ModelProducto class >> tipo: aString volumen: aNumber precioLitro: anotherN
 		setPrecioLitro: anotherNumber.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319ModelProducto class >> volumen: aNumber precioLitro: anotherNumber [
 
 	^ (self new)
@@ -27,31 +29,31 @@ Sg319ModelProducto class >> volumen: aNumber precioLitro: anotherNumber [
 		setPrecioLitro: anotherNumber.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg319ModelProducto >> cuotaIva [
 
 	^ ((volumen * precio * 21.00s2)  / 100.00s2) round: 2
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319ModelProducto >> noInformado [
 
 	^ self tipoNoInformado and: [ self volumenNoInformado and: [ self precioNoInformado ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg319ModelProducto >> precio [
 	
 	^ precio
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319ModelProducto >> precioNoInformado [
 
 	^ precio isNotNil or: [ precio <= 0.00 ]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Sg319ModelProducto >> printOn: aStream [
 	"Generate a string representation of the receiver based on its instance variables."
 
@@ -70,43 +72,43 @@ Sg319ModelProducto >> printOn: aStream [
 		print: self cuotaIva
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg319ModelProducto >> setPartidas: aDictionary [
 
 	mappings := aDictionary
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319ModelProducto >> setPrecioLitro: aNumber [
 
 	precio := aNumber round: 2
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg319ModelProducto >> setTipo: aString [
 
 	tipo := aString 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Sg319ModelProducto >> setVolumen: aNumber [
 
 	volumen := (aNumber round: 0) asInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg319ModelProducto >> tipo [
 
 	^ tipo
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319ModelProducto >> tipoNoInformado [
 
 	^ tipo isNil or: [ tipo trim isEmpty  ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg319ModelProducto >> validate [
 
 	| errores |
@@ -121,13 +123,13 @@ Sg319ModelProducto >> validate [
 	^ errores
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Sg319ModelProducto >> volumen [
 
 	^ volumen
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Sg319ModelProducto >> volumenNoInformado [
 
 	^ volumen isNotNil and: [ volumen <= 0.00 ]

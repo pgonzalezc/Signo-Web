@@ -1,14 +1,16 @@
 Class {
-	#name : #SgSoapMessage,
-	#superclass : #SgSoap,
+	#name : 'SgSoapMessage',
+	#superclass : 'SgSoap',
 	#instVars : [
 		'header',
 		'body'
 	],
-	#category : #'Signo-Web-Utils'
+	#category : 'Signo-Web-Utils',
+	#package : 'Signo-Web',
+	#tag : 'Utils'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 SgSoapMessage >> asString [ 
 
 	| writer |
@@ -26,19 +28,19 @@ SgSoapMessage >> asString [
 	^ writer asString.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgSoapMessage >> body: aXml [
 
 	body := aXml
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgSoapMessage >> header [
 
 	^ header ifNil: [  header := SgSoapHeader new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgSoapMessage >> header: aXmlWriter [
 
 	header := aXmlWriter asString 

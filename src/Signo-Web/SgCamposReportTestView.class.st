@@ -1,15 +1,17 @@
 Class {
-	#name : #SgCamposReportTestView,
-	#superclass : #SgBaseView,
+	#name : 'SgCamposReportTestView',
+	#superclass : 'SgBaseView',
 	#instVars : [
 		'rows',
 		'modelo',
 		'ejercicio'
 	],
-	#category : #'Signo-Web-Views'
+	#category : 'Signo-Web-Views',
+	#package : 'Signo-Web',
+	#tag : 'Views'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SgCamposReportTestView >> columnsDefs [
 
 	^ OrderedCollection new
@@ -20,25 +22,25 @@ SgCamposReportTestView >> columnsDefs [
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgCamposReportTestView >> ejercicio: aNumber [
 
 	ejercicio := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgCamposReportTestView >> model [ 
 
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgCamposReportTestView >> modelo: aString [
 
 	modelo := aString
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 SgCamposReportTestView >> renderContentOn: html [
 
 	html div
@@ -66,7 +68,7 @@ SgCamposReportTestView >> renderContentOn: html [
 						'El modelo es declarativo y no tiene valores asociados en la tabla de campos' ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgCamposReportTestView >> rows [
 
 	^ rows ifNil: [ rows := SgGestionTablas camposDelModelo: modelo ejercicio: ejercicio. ]
